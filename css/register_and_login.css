@@ -10,6 +10,14 @@ height: 100%;
 font-family: 'Quicksand', sans-serif;
 overflow: hidden;
 }
+.alert{
+    display: block;
+    padding: 12px 20px;
+    background: #f8d7da;
+    color: #721c24;
+    margin: 10px 0;
+    border: 1px solid #f5c6cb;
+}
 /*LOADER*/
 #carga{
     width:100%;

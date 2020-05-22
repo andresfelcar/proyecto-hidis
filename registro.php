@@ -47,31 +47,31 @@ if (!empty($_POST['nombre']) && !empty($_POST['pass'])){
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="icon-user"></i></span>
                         </div>
-                        <input name="nombre" type="text" class="form-control" placeholder="Nombre">
+                        <input name="nombre" type="text" class="form-control" placeholder="Nombre" id="nombre">
 
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="icon-users"></i></span>
                         </div>
-                        <input name="apellido" type="text" class="form-control" placeholder="Apellido">
+                        <input name="apellido" type="text" class="form-control" placeholder="Apellido" id="apellido">
 
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="icon-mail2"></i></span>
                         </div>
-                        <input name="email" type="text" class="form-control" placeholder="Correo">
+                        <input name="email" type="text" class="form-control" placeholder="Correo" id="correo">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="icon-key"></i></span>
                         </div>
-                        <input name="pass" type="password" class="form-control" placeholder="Contraseña">
+                        <input name="pass" type="password" class="form-control" placeholder="Contraseña" id="contrasena">
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" value="Registrar" class="btn login_btn btn-warning"> Ingresar</button>
+                        <button type="button" value="Registrar" class="btn login_btn btn-warning" id="boton" onclick="validarFormulario()"> Registrar</button>
                     </div>
                 </form>
             </div>
@@ -91,5 +91,5 @@ if (!empty($_POST['nombre']) && !empty($_POST['pass'])){
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+<script src="js/validacion.js"></script>
 </html>

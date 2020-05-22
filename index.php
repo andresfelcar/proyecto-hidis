@@ -8,8 +8,7 @@
     <title>HIDIS</title>
     <link rel="icon" href="img/logo.png">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- ICONOS-->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="fonts/style.css">
@@ -18,6 +17,7 @@
 </head>
 
 <body class="scroll">
+    <a href="#" id="btn-subir"><i class="icon icon-arrow-up2"></i></a>
     <!--Loader-->
     <div id="carga">
         <div id="carga2"></div>
@@ -179,7 +179,7 @@
             <div class="row align-items-center opiniones_content">
                 <div class="col-lg-7">
                     <div class="opiniones_iner">
-                        <form>
+                        <form class="move1">
                             <h2>Y cuentanos, ¿Qué te parece?</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -237,12 +237,9 @@
     <!----------------- RELACIONADOS, FOOTER END----------------->
 
     <!-- SCRIPTS -->
-    <script src="js/jquery.js"></script>
+    <script src="js/jquery.js"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
+
 </body>
 </html>
