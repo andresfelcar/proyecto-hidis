@@ -37,22 +37,23 @@ if ($resultado == null) {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Inicio</a>
+                    <a class="nav-link" href="ingreso.php">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Descripcion</a>
+                    <a class="nav-link" href="#">Historial</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Componentes</a>
+                    <a class="nav-link" href="#">Contactos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Nosotros</a>
+                    <a class="nav-link" href="familiares.php">Familiares</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Opiniones</a>
+                    <a class="nav-link" href="#">Dispositivo</a>
                 </li>
+              
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Referencias</a>
+                 <a class="nav-link ml-5" href="micuenta.html"><?php echo "$resultado[1]" ?></a>
                 </li>
             </ul>
             <button type="button" class="btn btn-danger"><a href="salir.php">Cerrar Sesion</a></button>

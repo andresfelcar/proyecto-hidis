@@ -33,7 +33,7 @@ Class Login_Controller{
     public function Consult($array){
 
         $conexion=Conexion::connection();
-        $sql = "SELECT * FROM usuarios WHERE correo=? AND contrasena=MD5(?)";
+        $sql = "SELECT * FROM paciente WHERE correo=? AND contrasena=MD5(?)";
         $stmt=$conexion->prepare($sql);
         $stmt->bind_param("ss",$array[0],$array[1]);
         $stmt->execute();
@@ -43,14 +43,15 @@ Class Login_Controller{
     }
     public function Insert($array) {
      
+        
         $Conexion = Conexion::connection();
-        $sql="SELECT * FROM usuarios WHERE correo = '$array[2]'";
+        $sql="SELECT * FROM paciente WHERE correo = '$array[2]'";
         $result =$Conexion->query($sql);
         $filas=$result->num_rows;
         if($filas>0){
           echo  "<script> alert('Ya existe una cuenta con ese correo ');</script>";
         }else{
-        $stmt=$Conexion->prepare("INSERT INTO usuarios(nombre,apellido,correo,contrasena) VALUES (?,?,?,MD5(?))");
+        $stmt=$Conexion->prepare("INSERT INTO paciente (nombres,apellidos,correo,contrasena) VALUES (?,?,?,MD5(?))");
         $stmt->bind_param("ssss", $array[0],$array[1],$array[2],$array[3]);
         $stmt->execute();
         echo "<script>alert('Usuario registrado con exito');</script>" ;

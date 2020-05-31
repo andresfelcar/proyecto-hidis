@@ -2,11 +2,11 @@
  
  require_once "Controller/Controller.php";
 
-if (!empty($_POST['nombre']) && !empty($_POST['pass'])){
+if (!empty($_POST['nombre']) && !empty($_POST['contraseña'])){
 
    $array=[];
 
-   array_push($array, $_POST['nombre'],$_POST['apellido'],$_POST['email'],$_POST['pass']);
+   array_push($array, $_POST['nombre'],$_POST['apellido'],$_POST['correo'],$_POST['contraseña']);
    $register = new Controller();
    $result =$register->Login(1,$array);
 
@@ -61,13 +61,13 @@ if (!empty($_POST['nombre']) && !empty($_POST['pass'])){
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="icon-mail2"></i></span>
                         </div>
-                        <input name="email" type="text" class="form-control" placeholder="Correo" id="correo">
+                        <input name="correo" type="text" class="form-control" placeholder="Correo" id="correo">
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="icon-key"></i></span>
                         </div>
-                        <input name="pass" type="password" class="form-control" placeholder="Contraseña" id="contrasena">
+                        <input name="contraseña" type="password" class="form-control" placeholder="Contraseña" id="contrasena">
                     </div>
 
                     <div class="form-group">
