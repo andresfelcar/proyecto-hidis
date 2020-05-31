@@ -30,27 +30,32 @@ if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
 
 <head>
     <!-- TAGS -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>CARDIO</title>
-    <link rel="icon" href="img/logo.png">
+    <link rel="icon" href="img/logo.png" />
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
     <!-- ICONOS-->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="fonts/style.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="fonts/style.css" />
     <!-- CSS -->
-    <link rel="stylesheet" href="css/ingreso.css">
-</head>
-
+    <link rel="stylesheet" href="css/ingreso.css" />
+  </head>
 <body>
     
-    <nav class="navbar navbar-expand-lg navbar-light ">
+<nav class="navbar navbar-expand-lg navbar-light">
         <img id="logo_nav" src="img/logo.png" alt="logo">
         <img id="palpitar" src="img/corazon1.gif" alt="corazon">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -59,10 +64,16 @@ if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
                     <a class="nav-link" href="ingreso.php">Inicio</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="historial.php">Recomendaciones</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Historial</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contactos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Notificacion.php">Notificar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="familiares.php">Familiares</a>
@@ -70,10 +81,7 @@ if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
                 <li class="nav-item">
                     <a class="nav-link" href="#">Dispositivo</a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link ml-5" href="micuenta.html"></a>
-                </li>
+              
             </ul>
             <button type="button" class="btn btn-danger"><a href="salir.php">Cerrar Sesion</a></button>
 

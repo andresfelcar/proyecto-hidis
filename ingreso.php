@@ -39,10 +39,16 @@ if ($resultado == null) {
                     <a class="nav-link" href="ingreso.php">Inicio</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="historial.php">Recomendaciones</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Historial</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contactos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Notificacion.php">Notificar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="familiares.php">Familiares</a>
@@ -51,9 +57,6 @@ if ($resultado == null) {
                     <a class="nav-link" href="#">Dispositivo</a>
                 </li>
               
-                <li class="nav-item">
-                 <a class="nav-link ml-5" href="micuenta.html"><?php echo "$resultado[1]" ?></a>
-                </li>
             </ul>
             <button type="button" class="btn btn-danger"><a href="salir.php">Cerrar Sesion</a></button>
 

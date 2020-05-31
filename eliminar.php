@@ -32,19 +32,34 @@ if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Document</title>
-</head>
+    <!-- TAGS -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>CARDIO</title>
+    <link rel="icon" href="img/logo.png" />
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!-- ICONOS-->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="fonts/style.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/ingreso.css" />
+  </head>
 <body>
 <div class="container">
     <div class="form">
             
     <form class="form_reg" action="" method="POST">
             
-            <div class="col">
+            <div class="col mt-4">
         <form method="POST">
         <div class="form-group">
         <h4 class="text-center">Eliminar Cuenta</h4>
