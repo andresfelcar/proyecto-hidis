@@ -106,9 +106,9 @@ if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
             </thead>
             <tbody>
                 <?php
-                    $pro = new Controller();
-                    $productos=$pro->Familiar(0);
-                    while ($mostrar = $productos->fetch_row()) {
+                    $control = new Controller();
+                    $familiares=$control->Familiar(0);
+                    while ($mostrar = $familiares->fetch_row()) {
                 ?>
 
                     <tr>
@@ -119,7 +119,7 @@ if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
                         <td><a class="btn btn-warning"  href="editFa.php?update_id=<?php echo $mostrar[0]?>
                         " title="Editar Familiar"><span class="glyphicon glyphicon-edit"></span></a></td>
                         
-                        <td><a class="btn btn-warning"  href="eliminar.php?update_id=<?php echo $mostrar[0]?>
+                        <td><a class="btn btn-danger"  href="eliminar.php?update_id=<?php echo $mostrar[0]?>
                         " title="Editar Familiar"><span class="glyphicon glyphicon-edit"></span></a></td>
                         
                         

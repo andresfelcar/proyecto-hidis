@@ -26,8 +26,6 @@ window.addEventListener("load", function () {
 
  
   irarriba();
-  
-  
 
 });
 function efectotext() {

@@ -5,6 +5,6 @@ class Conexion{
 
     public static function connection(){
     return mysqli_connect("localhost","root","","hidis_database");
-}
+    }
 }
 ?>
