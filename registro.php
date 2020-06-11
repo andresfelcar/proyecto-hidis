@@ -2,11 +2,11 @@
 
 require_once "Controller/Controller.php";
 
-if (!empty($_POST['nombre']) && !empty($_POST['pass'])) {
+ if (!empty($_POST['nombre']) && !empty($_POST['contraseña'])) {
 
-   
+    $array=[];
 
-    array_push($array, $_POST['nombre'], $_POST['apellido'], $_POST['email'], $_POST['pass']);
+    array_push($array, $_POST['nombre'], $_POST['apellido'], $_POST['correo'], $_POST['contraseña']);
     $register = new Controller();
     $result = $register->Login(1, $array);
 }

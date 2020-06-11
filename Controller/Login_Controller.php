@@ -43,6 +43,7 @@ Class Login_Controller{
     }
     public function Insert($array) {
      
+        echo "si entro";
         
         $Conexion = Conexion::connection();
         $sql="SELECT * FROM paciente WHERE correo = '$array[2]'";
