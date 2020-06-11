@@ -69,7 +69,7 @@ require_once "Controller/Controller.php";
                     </div>
 
                     <div class="form-group">
-                        <button type="button" value="Registrar" class="btn login_btn btn-warning" id="boton" onclick="validarFormulario()"> Registrar</button>
+                        <button type="button" value="Registrar" class="btn login_btn btn-success btn-block" id="boton" onclick="validarFormulario()"> Registrar</button>
                     </div>
                 </form>
             </div>
@@ -77,7 +77,7 @@ require_once "Controller/Controller.php";
                 <div class="d-flex justify-content-center links">
                     <p>¿Ya tienes una cuenta?</p>
                 </div>
-                <a href="login.php" class="btn btn-success d-flex justify-content-center">Ingresa</a>
+                <a href="login.php" class="btn btn-primary d-flex justify-content-center">Ingresa</a>
             </div>
         </div>
     </div>

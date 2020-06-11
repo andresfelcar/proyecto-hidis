@@ -53,18 +53,19 @@ if (!empty($_POST['email']) && !empty($_POST['pass'])){
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="icon-mail2"></i></span>
                             </div>
-                            <input name="email" type="text" class="form-control" placeholder="Correo">
+                            <input name="email" type="text" class="form-control" placeholder="Correo" id="correo">
 
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="icon-key"></i></span>
                             </div>
-                            <input name="pass" type="password" class="form-control" placeholder="Contraseña">
+                            <input name="pass" type="password" class="form-control" placeholder="Contraseña " id="contrasena">
                         </div>
                        
                         <div class="form-group">
-                            <button type="submit" value="Registrar" class="btn btn-warning"> Ingresar</button>
+                        <button type="button" value="Registrar" class="btn login_btn btn-warning btn-block" id="boton" onclick="validarLogin()"> Ingresar</button>
+                           
                         </div>
                     </form>
                 </div>
@@ -82,5 +83,6 @@ if (!empty($_POST['email']) && !empty($_POST['pass'])){
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="js/main.js"></script>
+<script src="js/validacion.js"></script>
 
 </html>
