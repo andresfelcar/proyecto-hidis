@@ -38,14 +38,14 @@ class FamiliarController{
         return $conexion->query($sql);
     }
     public function Insert($array){
-         
+         echo "$array[10]";
         $conexion = Conexion::connection();
   
 
         $sql="INSERT INTO familiar (nombres,apellidos,documento_id,telefono,movil,correo,
         direccion_residencia,direccion_laboral,idpaciente,contrasena) VALUES (?,?,?,?,?,?,?,?,?,MD5(?))";
         $stmt=$conexion->prepare($sql);
-        $stmt->bind_param("ssssssssis", $array[0], $array[1], $array[2], $array[3], $array[4], $array[5],$array[6],$array[7],$array[8],$array[9]);
+        $stmt->bind_param("ssssssssis", $array[0], $array[1], $array[2], $array[3], $array[4], $array[5],$array[6],$array[7],$array[10],$array[9]);
         $stmt->execute();
     }
     public function Update($array){
@@ -58,12 +58,11 @@ class FamiliarController{
         $stmt->execute();
     }
     public function Delete($array){
-  
+     echo "entro al delete";
         $conexion =Conexion::connection();
 
-        $sql ="DELETE FROM familiar WHERE idfamiliar=?";
+        $sql ="DELETE FROM familiar WHERE idfamiliar='$array[0]'";
         $stmt =$conexion->prepare($sql);
-        $stmt->bind_param("i",$array[0]);
         $stmt->execute();
 
     }

@@ -2,6 +2,7 @@
  @session_start();
  require_once "Controller/Controller.php";
  $resultado=$_SESSION['user'];
+ $idpaciente=$resultado[0];
  if($resultado==null){
    header("location:index.php"); 
  } 
@@ -18,7 +19,8 @@ if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
   $_POST['direccionF'],
   $_POST['direccionlF'],
   $_POST['codigoP'],
-  $_POST['contraseñaF']);
+  $_POST['contraseñaF'],
+$idpaciente);
 
   $familia=new Controller();
   $result=$familia->Familiar(1,$array);
@@ -166,10 +168,6 @@ if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
               <div class="form-group">
                 <label for="exampleFormControlInput1 mt-4">Direccion Laboral</label>
                 <input name="direccionlF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar">
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1 mt-4">Codigo del paciente</label>
-                <input name="codigoP" type="number" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar" required>
               </div>
               <div class="form-group">
                 <label for="exampleFormControlInput1 mt-4">Contraseña</label>

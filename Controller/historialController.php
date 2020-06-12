@@ -9,12 +9,19 @@ class historialController
     {
         $histo= new historialController();
         switch ($option) {
-            case 0:
+                case 0:
                 $result = $histo->Consult($array);
-                break;
+                     break;
                 case 1:
                     $result = $histo->Insert($array);
-                    break;
+                     break;
+                case 2:
+                        $result = $histo->Update($array);
+                     break;
+                case 3:
+                        $result = $histo->Delete($array);
+                     break;
+
         }
         return $result;
     }
@@ -22,11 +29,20 @@ class historialController
     public function Consult($array)
     {
         $conexion = conexion::connection();
-
-        $sql = "SELECT idevento,gravedad,notificacion,
+         
+        if ($array==null){
+               $sql = "SELECT idevento,gravedad,notificacion,
         recomendacion,fecha_suceso,nombreP from evento";
 
         $result=$conexion->query($sql);
+        }
+        else {
+            
+            $sql ="SELECT idevento,gravedad,notificacion,
+            recomendacion,fecha_suceso,nombreP from evento WHERE  fecha_suceso BETWEEN '$array[0]' AND '$array[1]'";
+            $result=$conexion->query($sql);
+        }
+     
         
        
         return $result;
@@ -48,5 +64,28 @@ class historialController
        $stmt->execute();
        return $stmt;
        
+    }
+
+    public function Update($array){
+          echo"entro al update";
+        $conexion=conexion::connection();
+         $sql ="UPDATE evento SET gravedad=?,recomendacion=? WHERE idevento='$array[2]'";
+         $stmt =$conexion->prepare($sql);
+         $stmt->bind_param("ss",$array[0],$array[1]);
+         $stmt->execute();
+
+    }
+
+    public function Delete($array){
+     
+        $conexion=conexion::connection();
+        
+        $sql ="DELETE FROM evento WHERE idevento=?";
+        $stmt =$conexion->prepare($sql);
+        $stmt->bind_param("i",$array[0]);
+        $stmt->execute();
+        
+
+
     }
 }

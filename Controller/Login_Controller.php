@@ -42,15 +42,17 @@ Class Login_Controller{
 
     }
     public function Insert($array) {
-     
-        echo "si entro";
-        
+    
         $Conexion = Conexion::connection();
+
         $sql="SELECT * FROM paciente WHERE correo = '$array[2]'";
         $result =$Conexion->query($sql);
         $filas=$result->num_rows;
+        
         if($filas>0){
+
           echo  "<script> alert('Ya existe una cuenta con ese correo ');</script>";
+          
         }else{
         $stmt=$Conexion->prepare("INSERT INTO paciente (nombres,apellidos,correo,contrasena) VALUES (?,?,?,MD5(?))");
         $stmt->bind_param("ssss", $array[0],$array[1],$array[2],$array[3]);

@@ -65,13 +65,13 @@ require_once "Controller/Controller.php";
 
         </div>
     </nav>
-    <div class="container-fluid">
-      <form action="" method="POST" class="mt-4">
+    <div class="container-fluid mt-4">
+      <form action="" method="POST" class="mt-4 mb-5">
         <input type="date" name="fecha1" />
         <input type="date" name="fecha2" />
         <button type="submit" class="btn btn-success">Buscar</button>
       </form>
-      <table class="table table-bordered">
+      <table class="table table-bordered mt-5">
             <thead>
                 <tr>
                     <th scope="col">Codigo</th>
@@ -85,9 +85,16 @@ require_once "Controller/Controller.php";
             </thead>
             <tbody>
                 <?php
-                    $pro = new Controller();
-                    $productos=$pro->Historial(0);
+                    $histo = new Controller();
+                    if(!empty($_POST['fecha1']) && !empty($_POST['fecha2'])){
+                        $array=[];
+                        array_push($array,$_POST['fecha1'],$_POST['fecha2']);
+                        $productos=$histo->Historial(0,$array);
+                   
+                   
+                   
                     while ($mostrar = $productos->fetch_row()) {
+                    
                 ?>
 
                     <tr>
@@ -97,18 +104,45 @@ require_once "Controller/Controller.php";
                         <td><?php echo $mostrar[1] ?></td>
                         <td><?php echo $mostrar[5] ?></td>
                         <td><?php echo $mostrar[4] ?></td>
-                        <td><a class="btn btn-warning"  href="#?update_id=<?php echo $mostrar[0]?>
-                        " title="Editar Familiar"><span class="glyphicon glyphicon-edit"></span></a></td>
+                        <td><a class="btn btn-warning"  href="EditarReco.php?update_id=<?php echo $mostrar[0]?>
+                        " title="Editar Familiar"><span class="glyphicon glyphicon-edit">Editar</span></a></td>
                         
-                        <td><a class="btn btn-warning"  href="#?update_id=<?php echo $mostrar[0]?>
-                        " title="Editar Familiar"><span class="glyphicon glyphicon-edit"></span></a></td>
+                        <td><a  class="btn btn-warning" href="eliminar_reco.php?update_id=<?php echo $mostrar[0]?>
+                        " title="Eliminar Historial"><span class="glyphicon glyphicon-edit">Eliminar</span></a></td>
                         
                         
                         
                         
                     </tr>
                 <?php
-                }
+                } } else {
+                    $histo = new Controller();
+                   
+                        $productos=$histo->Historial(0);
+                   
+                   
+                   
+                    while ($mostrar = $productos->fetch_row()) {
+                    
+                ?>
+
+                    <tr>
+                        <td><?php echo $mostrar[0] ?></td>
+                        <td><?php echo $mostrar[2] ?></td>
+                        <td><?php echo $mostrar[3] ?></td>
+                        <td><?php echo $mostrar[1] ?></td>
+                        <td><?php echo $mostrar[5] ?></td>
+                        <td><?php echo $mostrar[4] ?></td>
+                        <td><a class="btn btn-warning"  href="EditarReco.php?update_id=<?php echo $mostrar[0]?>
+                        " title="Editar Familiar"><span class="glyphicon glyphicon-edit">Editar</span></a></td>
+                        
+                        <td><a  class="btn btn-warning" href="eliminar_reco.php?update_id=<?php echo $mostrar[0]?>
+                        " title="Eliminar Historial"><span class="glyphicon glyphicon-edit">Eliminar</span></a></td>
+                        
+                 
+                    </tr>
+                <?php
+                }}
                 ?>
             </tbody>
             </table>
