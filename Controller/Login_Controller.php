@@ -42,7 +42,11 @@ Class Login_Controller{
 
     }
     public function Insert($array) {
+<<<<<<< HEAD
     
+=======
+        
+>>>>>>> 27622afdee15d78ef0be5234c9ae0e434d16f170
         $Conexion = Conexion::connection();
 
         $sql="SELECT * FROM paciente WHERE correo = '$array[2]'";
