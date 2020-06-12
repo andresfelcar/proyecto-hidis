@@ -58,7 +58,7 @@ if ($resultado == null) {
                 </li>
               
             </ul>
-            <button type="button" class="btn btn-danger"><a href="salir.php">Cerrar Sesion</a></button>
+            <a class="btn btn-danger" href="salir.php">Cerrar Sesion</a>
 
         </div>
     </nav>

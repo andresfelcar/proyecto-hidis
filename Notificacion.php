@@ -79,23 +79,22 @@ $result=$histori->Historial(1,$array);
               
                
             </ul>
-            <button type="button" class="btn btn-danger"><a href="salir.php">Cerrar Sesion</a></button>
+            <a class="btn btn-danger" href="salir.php">Cerrar Sesion</a>
 
         </div>
     </nav>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col"></div>
-      <div class="col mt-4">
+    <div class="row justify-content-center mt-5">
+      <div class="col-4">
         <form action="" method="POST">
           <div class="form-group">
-            <label for="exampleFormControlInput1">Nombre Doctor</label>
+            <label>Nombre Doctor</label>
             <input
             name="nombredoctor"
               type="text"
               class="form-control"
               id="exampleFormControlInput1"
-              placeholder="name@example.com"
+              placeholder="Nombre"
             />
           </div>
           <div class="form-group">
@@ -131,7 +130,7 @@ $result=$histori->Historial(1,$array);
           </div>
           <div class="form-group text-center">
           <button type="submit" class="btn btn-primary ">
-            Sign in
+            Guardar
           </button>
         </div>
         </form>

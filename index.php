@@ -33,22 +33,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Inicio</a>
+                    <a class="nav-link" href="index.php">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Descripcion</a>
+                    <a class="nav-link" href="#descripcion">Descripcion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Componentes</a>
+                    <a class="nav-link" href="#componentes">Componentes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Nosotros</a>
+                    <a class="nav-link" href="#equipo">Nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="familiares.php">Familiares</a>
+                    <a class="nav-link" href="#opiniones">Opiniones</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Referencias</a>
+                    <a class="nav-link" href="#relacionados">Referencias</a>
                 </li>
             </ul>
 
@@ -60,7 +60,7 @@
     <!--Nav end-->
 
     <!-- DESCRIPCION-->
-    <section class="descripcion">
+    <section class="descripcion" id="descripcion">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-xl-5">
@@ -94,7 +94,7 @@
                     <div class="componentes_content">
                         <div class="row justify-content-center">
                             <div class="col-xl-8">
-                                <h2>Componentes</h2>
+                                <h2 id="componentes">Componentes</h2>
                                 <div class="row">
                                     <div class="card" style="width: 18rem;">
                                         <img src="img/paca-arduino.webp" class="card-img-top" alt="...">
@@ -173,7 +173,7 @@
     <!-- NUESTRO EQUIPO END-->
 
     <!-- OPINIONES-->
-    <section class="opiniones parallax">
+    <section class="opiniones parallax" id="opiniones">
         <div class="container">
             <div class="row align-items-center opiniones_content">
                 <div class="col-lg-7">

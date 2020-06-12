@@ -110,7 +110,7 @@ function mostraAlerta(texto) {
 }
 
 
-
+//INICIO VALIDACION LOGIN
 
 
 
@@ -124,40 +124,6 @@ function validarLogin() {
     contrasena = $("#contrasena").val(),
     respuesta= clean();
 
-  if (nombre == "" || nombre == null) {
-    cambiarColor("nombre");
-    // mostramos le mensaje de alerta
-    mostraAlerta("Campo obligatorio");
-    return false;
-  } else {
-    var expresion = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$/;
-    if (!expresion.test(nombre)) {
-      // mostrara el mesaje que debe ingresar un nombre válido
-      cambiarColor("nombre");
-      mostraAlerta("No se permiten carateres especiales o numeros");
-      return false;
-    }else{
-      respuesta
-    }
-  }
-
-  if (apellido == "" || apellido == null) {
-    cambiarColor("apellido");
-    // mostramos le mensaje de alerta
-    mostraAlerta("Campo obligatorio");
-    return false;
-  } else {
-    var expresion = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$/;
-    if (!expresion.test(apellido)) {
-      // mostrara el mesaje que debe ingresar un apellido válido
-      cambiarColor("apellido");
-      mostraAlerta("No se permiten carateres especiales o numeros");
-      return false;
-    }else{
-      respuesta
-    }
-  }
-
   if (correo == "" || correo == null) {
     cambiarColor("correo");
     mostraAlerta("Campo obligatorio");
@@ -168,6 +134,8 @@ function validarLogin() {
       cambiarColor("correo");
       mostraAlerta("Ingrese un correo válido");
       return false;
+    }else{
+      respuesta
     }
   }
   if (contrasena == "" || contrasena == null) {
