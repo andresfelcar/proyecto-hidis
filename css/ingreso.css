@@ -22,6 +22,16 @@ body{
     height: 25px;
     margin-right: 2%;
 }
+.bg-font-edit{
+ background-image: url(../img/reservation.png);
+
+}
+@media (max-width:900px){
+    .bg-font-edit{display: none;}
+}
+.tam-doc{
+    height: 685px;
+}
 .navbar-light .navbar-nav .nav-link{color: #ee595f;font-size:20px;}
 .navbar-light .navbar-nav .nav-link:hover{color:#fff;}
 

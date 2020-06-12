@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 @session_start();
 require_once "Controller/Controller.php";
@@ -24,6 +25,34 @@ if (!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])) {
 
   $familia = new Controller();
   $result = $familia->Familiar(1, $array);
+=======
+<?php 
+ @session_start();
+ require_once "Controller/Controller.php";
+ $resultado=$_SESSION['user'];
+ $idpaciente=$resultado[0];
+ if($resultado==null){
+   header("location:index.php"); 
+ } 
+if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
+  $array=[];
+  error_reporting(E_ALL ^ E_NOTICE);
+  array_push($array,
+  $_POST['nombreF'],
+  $_POST['apellidoF'],
+  $_POST['documentoF'],
+  $_POST['telefonoF'],
+  $_POST['celularF'],
+  $_POST['correoF'],
+  $_POST['direccionF'],
+  $_POST['direccionlF'],
+  $_POST['codigoP'],
+  $_POST['contraseñaF'],
+$idpaciente);
+
+  $familia=new Controller();
+  $result=$familia->Familiar(1,$array);
+>>>>>>> df26d6f0cfa650138e1c1d54b7a3769255896561
 }
 
 ?>
@@ -137,6 +166,7 @@ if (!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])) {
               <input name="apellidoF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="apellido del familiar" required>
             </div>
             <div class="form-group">
+<<<<<<< HEAD
               <label for="exampleFormControlInput1 mt-4">Documento</label>
               <input name="documentoF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="documento del familiar" required>
             </div>
@@ -149,6 +179,43 @@ if (!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])) {
               <input name="celularF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="celular del familiar" required>
             </div>
           </div>
+=======
+                <label for="exampleFormControlInput1 mt-4">Documento</label>
+                <input name="documentoF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1 mt-4">Telefono</label>
+                <input name="telefonoF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1 mt-4">Celular</label>
+                <input name="celularF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1 mt-4">Correo</label>
+                <input name="correoF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1 mt-4">Direccion</label>
+                <input name="direccionF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1 mt-4">Direccion Laboral</label>
+                <input name="direccionlF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1 mt-4">Contraseña</label>
+                <input name="contraseñaF" type="password" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar" required>
+              </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+    
+            
+          </form>
+    </div>
+</div>
+>>>>>>> df26d6f0cfa650138e1c1d54b7a3769255896561
 
 
           <div class="col">
