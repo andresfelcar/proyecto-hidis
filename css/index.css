@@ -6,7 +6,7 @@ body {
   font-size: 18px;
 }
 
-#btn-subir {
+#btn-sub {
   width: 50px;
   height: 50px;
   z-index: 10;
@@ -23,12 +23,12 @@ body {
   opacity: 0.8s;
 }
 
-#btn-subir:hover {
+#btn-sub:hover {
   opacity: 1;
   background-color: #162936f5;
 }
 @media (max-width: 700px) {
-    #btn-subir{
+    #btn-sub{
         padding:2.3%;  
     }
   }

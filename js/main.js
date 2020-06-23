@@ -46,7 +46,7 @@ function bajarscroll() {
 }
 
 function irarriba() {
-  var arriba = $("#btn-subir");
+  var arriba = $("#btn-sub");
   arriba.click(function (e) {
     e.preventDefault();
     $("html , body").animate({ scrollTop: 0 }, 500);

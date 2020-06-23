@@ -11,8 +11,10 @@ if ($resultado == null) {
 
 $fami = new Controller();
 $code = $_GET['update_id'];
+//$identificador=1;
 if (!empty($_GET['update_id'])) {
-  $familiarvalues = $fami->Familiar(0, $_GET['update_id']);
+ 
+  $familiarvalues = $fami->Familiar(0,$code);
   $items = $familiarvalues->fetch_row();
 }
 if (!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])) {
@@ -31,6 +33,7 @@ if (!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])) {
     $_POST['codigoP'],
     $_POST['contraseñaF'],
     $code
+    //$identificador
   );
 
   $familia = new Controller();

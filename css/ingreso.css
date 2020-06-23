@@ -8,12 +8,12 @@ body{
 }
 
 /*NAV*/
-.navbar{
-    
-    z-index:100;width:100%;
-    box-shadow: 0 0 10px 0 rgba(0 , 0, 0, .6);
-    background:#162936f5;
-}
+.navbar {
+    z-index: 100;
+    width: 100%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
+    background: #162936f5;
+  }
 #logo_nav{ 
     width: 70px;
     height: 70px;
