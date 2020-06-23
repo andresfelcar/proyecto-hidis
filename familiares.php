@@ -1,8 +1,8 @@
-<<<<<<< HEAD
 <?php
 @session_start();
 require_once "Controller/Controller.php";
 $resultado = $_SESSION['user'];
+$idpaciente = $resultado[0];
 if ($resultado == null) {
   header("location:index.php");
 }
@@ -20,39 +20,12 @@ if (!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])) {
     $_POST['direccionF'],
     $_POST['direccionlF'],
     $_POST['codigoP'],
-    $_POST['contraseñaF']
+    $_POST['contraseñaF'],
+    $idpaciente
   );
 
   $familia = new Controller();
   $result = $familia->Familiar(1, $array);
-=======
-<?php 
- @session_start();
- require_once "Controller/Controller.php";
- $resultado=$_SESSION['user'];
- $idpaciente=$resultado[0];
- if($resultado==null){
-   header("location:index.php"); 
- } 
-if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
-  $array=[];
-  error_reporting(E_ALL ^ E_NOTICE);
-  array_push($array,
-  $_POST['nombreF'],
-  $_POST['apellidoF'],
-  $_POST['documentoF'],
-  $_POST['telefonoF'],
-  $_POST['celularF'],
-  $_POST['correoF'],
-  $_POST['direccionF'],
-  $_POST['direccionlF'],
-  $_POST['codigoP'],
-  $_POST['contraseñaF'],
-$idpaciente);
-
-  $familia=new Controller();
-  $result=$familia->Familiar(1,$array);
->>>>>>> df26d6f0cfa650138e1c1d54b7a3769255896561
 }
 
 ?>
@@ -113,8 +86,8 @@ $idpaciente);
   </nav>
 
   <div class="container-fluid pt-5">
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-xl-6 mb-3">
+    <div class="row ">
+      <div class="col-sm-12 col-md-12 col-xl-6 mb-5 mt-4">
         <h4 class="mb-4 text-center">Familiares Registrados</h4>
 
 
@@ -131,7 +104,7 @@ $idpaciente);
           <tbody>
             <?php
             $control = new Controller();
-            $familiares = $control->Familiar(0);
+            $familiares = $control->Familiar(0, $idpaciente);
             while ($mostrar = $familiares->fetch_row()) {
             ?>
 
@@ -145,6 +118,7 @@ $idpaciente);
 
                 <td><a class="btn btn-danger" href="eliminar.php?update_id=<?php echo $mostrar[0] ?>
                         " title="Eliminar Familiar"><i class="icon-bin"></i></a></td>
+
               </tr>
             <?php
             }
@@ -152,8 +126,7 @@ $idpaciente);
           </tbody>
         </table>
       </div>
-
-      <form method="POST" class="col-sm-12 col-md-12 col-xl-6 mb-5 text-center">
+      <form method="POST" class="col-sm-12 col-md-12 col-xl-6 mb-5 text-center text-center">
         <h4 class="text-center">Registrar familiar</h4>
         <div class="row">
           <div class="col">
@@ -166,7 +139,6 @@ $idpaciente);
               <input name="apellidoF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="apellido del familiar" required>
             </div>
             <div class="form-group">
-<<<<<<< HEAD
               <label for="exampleFormControlInput1 mt-4">Documento</label>
               <input name="documentoF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="documento del familiar" required>
             </div>
@@ -179,43 +151,6 @@ $idpaciente);
               <input name="celularF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="celular del familiar" required>
             </div>
           </div>
-=======
-                <label for="exampleFormControlInput1 mt-4">Documento</label>
-                <input name="documentoF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar" required>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1 mt-4">Telefono</label>
-                <input name="telefonoF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar" required>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1 mt-4">Celular</label>
-                <input name="celularF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar" required>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1 mt-4">Correo</label>
-                <input name="correoF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar" required>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1 mt-4">Direccion</label>
-                <input name="direccionF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar" required>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1 mt-4">Direccion Laboral</label>
-                <input name="direccionlF" type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar">
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1 mt-4">Contraseña</label>
-                <input name="contraseñaF" type="password" class="form-control" id="exampleFormControlInput1" placeholder="nombre del familiar" required>
-              </div>
-                <div class="form-group text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
-    
-            
-          </form>
-    </div>
-</div>
->>>>>>> df26d6f0cfa650138e1c1d54b7a3769255896561
 
 
           <div class="col">
@@ -240,14 +175,14 @@ $idpaciente);
               <input name="contraseñaF" type="password" class="form-control" id="exampleFormControlInput1" placeholder="contraseña del familiar" required>
             </div>
 
-              
-            
+
+
           </div>
           <button type="submit" class="btn btn-primary btn-block">Registrar</button>
         </div>
       </form>
+
     </div>
-  </div>
 
   </div>
   <!-- SCRIPTS -->

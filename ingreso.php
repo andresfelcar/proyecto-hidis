@@ -5,6 +5,7 @@ $resultado = $_SESSION['user'];
 if ($resultado == null) {
     header("location:login.php");
 }
+
 ?>
 
 

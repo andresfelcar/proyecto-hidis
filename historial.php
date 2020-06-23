@@ -105,13 +105,10 @@ require_once "Controller/Controller.php";
                         <td><?php echo $mostrar[5] ?></td>
                         <td><?php echo $mostrar[4] ?></td>
                         <td><a class="btn btn-warning"  href="EditarReco.php?update_id=<?php echo $mostrar[0]?>
-                        " title="Editar Familiar"><span class="glyphicon glyphicon-edit">Editar</span></a></td>
+                        " title="Editar Familiar"><i class="icon-pencil"></i></a></td>
                         
                         <td><a  class="btn btn-warning" href="eliminar_reco.php?update_id=<?php echo $mostrar[0]?>
-                        " title="Eliminar Historial"><span class="glyphicon glyphicon-edit">Eliminar</span></a></td>
-                        
-                        
-                        
+                        " title="Eliminar Historial"><i class="icon-bin"></i></a></td>
                         
                     </tr>
                 <?php

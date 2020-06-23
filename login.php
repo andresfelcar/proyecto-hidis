@@ -9,6 +9,7 @@ if (!empty($_POST['email']) && !empty($_POST['pass'])){
     array_push($array,$_POST['email'],$_POST['pass']);
     $_SESSION['user']=$login->Login(0,$array);
     $resultado=$_SESSION['user'];
+
     if($resultado !=null){
         header("location:ingreso.php");
     } else {

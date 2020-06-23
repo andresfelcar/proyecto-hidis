@@ -18,8 +18,7 @@ if(!empty($_GET['update_id'])){
 }
 if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
     $array=[];
-    array_push($array,
-                      $code);
+    array_push($array, $code);
   
     $familia=new Controller();
     $result=$familia->Familiar(3,$array);

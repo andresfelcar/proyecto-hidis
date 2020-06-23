@@ -29,16 +29,12 @@ class FamiliarController{
         
         $conexion = Conexion::connection();
         
-        if($array==null){
-            $sql = "SELECT * from familiar";
-        return $conexion->query($sql);
-        }
-        
-        $sql = "SELECT * from familiar WHERE idfamiliar='$array'";
+        $sql = "SELECT * from familiar WHERE idpaciente='$array'";
         return $conexion->query($sql);
     }
+
     public function Insert($array){
-         echo "$array[10]";
+         
         $conexion = Conexion::connection();
   
 

@@ -13,9 +13,7 @@ class Controller{
     public function Historial($option,$array=[]){
         return historialController::Main($option,$array);
     }
-
-
-   
+  
 }
 
 ?>

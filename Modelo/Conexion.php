@@ -1,5 +1,5 @@
 <?php 
-
+$hola="";
 class Conexion{
     private function __construct(){}
 

@@ -41,6 +41,21 @@ require_once "Controller/Controller.php";
             <div class="card-body">
                 <h4 class="card-title d-flex justify-content-center">Registro</h4>
                 <form action="" method="POST">
+
+                <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="icon-user"></i></span>
+                        </div>
+            
+            <select name="gravedad" class="form-control" id="exampleFormControlSelect1">
+              <option>Tipo Usuario</option>
+              <option>Medico</option>
+              <option>Familiar</option>
+              <option>Paciente</option>
+             
+            </select>
+          </div>
+
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="icon-user"></i></span>

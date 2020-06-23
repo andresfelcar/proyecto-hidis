@@ -110,7 +110,7 @@ function mostraAlerta(texto) {
 }
 
 
-//INICIO VALIDACION LOGIN
+
 
 
 
@@ -124,6 +124,8 @@ function validarLogin() {
     contrasena = $("#contrasena").val(),
     respuesta= clean();
 
+ 
+
   if (correo == "" || correo == null) {
     cambiarColor("correo");
     mostraAlerta("Campo obligatorio");
@@ -134,8 +136,6 @@ function validarLogin() {
       cambiarColor("correo");
       mostraAlerta("Ingrese un correo válido");
       return false;
-    }else{
-      respuesta
     }
   }
   if (contrasena == "" || contrasena == null) {
