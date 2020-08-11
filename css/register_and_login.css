@@ -40,13 +40,18 @@ overflow: hidden;
 	margin-left:40%;
 	margin-top:2%;
 }
+#card_restart{
+    transform: translateX(-800px);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s ease;
+}
 .input-group-text{
 	background-color:#ee595e;
 	color:white;
 }
 .contenedor{
     width:100%;
-    height:80%;
     background-color:transparent;
 }
 @media (max-width: 800px) {

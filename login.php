@@ -1,23 +1,31 @@
 <?php
 @session_start();
 require_once "Controller/Controller.php";
-$loginError ="";
-if (!empty($_POST['email']) && !empty($_POST['pass'])){
+$loginError = "";
+if (!empty($_POST['email']) && !empty($_POST['pass'])) {
 
-    $login=new Controller();
-    $array=[];
-    array_push($array,$_POST['email'],$_POST['pass']);
-    $_SESSION['user']=$login->Login(0,$array);
-    $resultado=$_SESSION['user'];
+    $login = new Controller();
+    $array = [];
+    array_push($array, $_POST['email'], $_POST['pass']);
+    $_SESSION['user'] = $login->Login(0, $array);
+    $resultado = $_SESSION['user'];
 
-    if($resultado !=null){
+    if ($resultado != null) {
         header("location:ingreso.php");
     } else {
-        $_SESSION['user']=null;
-        $loginError="Usuario o contraseña incorrectos";
+        $_SESSION['user'] = null;
+        $loginError = "Usuario o contraseña incorrectos";
     }
-}else{
-    $loginError="Ingrese los datos";
+} else {
+    $loginError = "Ingrese los datos";
+}
+
+if(isset($_POST['btn_restart'])){
+    $cambio = new Controller();
+    $array = [];
+    $token = uniqid();
+    array_push($array, $token, $_POST['email_restart']);
+    $cambio->Login(2, $array);
 }
 ?>
 
@@ -44,12 +52,14 @@ if (!empty($_POST['email']) && !empty($_POST['pass'])){
     <div id="carga">
         <div id="carga2"></div>
     </div>
+
     <div class="contenedor">
+
         <div class="d-flex">
             <div class="card">
                 <div class="card-body">
-                <h4 class="card-title d-flex justify-content-center">Login</h4>
-                    <form action="" method="POST">
+                    <h4 class="card-title d-flex justify-content-center">Login</h4>
+                    <form method="POST">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="icon-mail2"></i></span>
@@ -63,10 +73,10 @@ if (!empty($_POST['email']) && !empty($_POST['pass'])){
                             </div>
                             <input name="pass" type="password" class="form-control" placeholder="Contraseña " id="contrasena">
                         </div>
-                       
+
                         <div class="form-group">
-                        <button type="button" value="Registrar" class="btn login_btn btn-warning btn-block" id="boton" onclick="validarLogin()"> Ingresar</button>
-                           
+                            <button type="submit" value="Registrar" class="btn login_btn btn-warning btn-block" id="boton" onclick="validarLogin(e)"> Ingresar</button>
+                            <a href="" id="a_restart">¿Olvidó su contraseña?</a>
                         </div>
                     </form>
                 </div>
@@ -75,6 +85,23 @@ if (!empty($_POST['email']) && !empty($_POST['pass'])){
                         ¿No tienes una cuenta?
                     </div>
                     <a href="registro.php" class="btn btn-success d-flex justify-content-center">Registrate</a>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="card" id="card_restart">
+                <div class="card-body">
+                    <h4 class="card-title d-flex justify-content-center">Ingrese su correo</h4>
+
+                    <form action="" method="POST">
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="icon-mail2"></i></span>
+                            </div>
+                            <input name="email_restart" type="email" class="form-control" placeholder="Correo">
+                            <button name="btn_restart" type="submit" class="btn login_btn btn-warning btn-block">Enviar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -22,7 +22,7 @@ if (!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])) {
     $_POST['codigoP'],
     $_POST['contraseñaF'],
     $idpaciente
-  );
+);
 
   $familia = new Controller();
   $result = $familia->Familiar(1, $array);
