@@ -6,7 +6,7 @@ function validarFormulario() {
     apellido = $("#apellido").val(),
     correo = $("#correo").val(),
     contrasena = $("#contrasena").val(),
-    respuesta= clean();
+    respuesta = clean();
 
   if (nombre == "" || nombre == null) {
     cambiarColor("nombre");
@@ -20,8 +20,8 @@ function validarFormulario() {
       cambiarColor("nombre");
       mostraAlerta("No se permiten carateres especiales o numeros");
       return false;
-    }else{
-      respuesta
+    } else {
+      respuesta;
     }
   }
 
@@ -37,8 +37,8 @@ function validarFormulario() {
       cambiarColor("apellido");
       mostraAlerta("No se permiten carateres especiales o numeros");
       return false;
-    }else{
-      respuesta
+    } else {
+      respuesta;
     }
   }
 
@@ -71,23 +71,22 @@ function validarFormulario() {
         "Ingrese una contraseña válida, debe tener al menos una mayúscula y un número"
       );
       return false;
-    }else{
-      respuesta
+    } else {
+      respuesta;
     }
   }
 
   $("form").submit();
   return true;
 }
-function clean(){
-$("input").focus(function () {
-  $(".alert").remove();
-  colorDefault("nombre");
-  colorDefault("apellido");
-  colorDefault("correo");
-  colorDefault("contrasena");
-});
-
+function clean() {
+  $("input").focus(function () {
+    $(".alert").remove();
+    colorDefault("nombre");
+    colorDefault("apellido");
+    colorDefault("correo");
+    colorDefault("contrasena");
+  });
 }
 
 // creamos un funcion de color por defecto a los bordes de los inputs
@@ -108,23 +107,14 @@ function cambiarColor(dato) {
 function mostraAlerta(texto) {
   $("#boton").after('<p class="alert">' + texto + "</p>");
 }
-
-
-
-
-
-
 
 function validarLogin() {
   $(".alert").remove();
 
   // declarion de variables
-  var 
-    correo = $("#correo").val(),
+  var correo = $("#correo").val(),
     contrasena = $("#contrasena").val(),
-    respuesta= clean();
-
- 
+    respuesta = clean();
 
   if (correo == "" || correo == null) {
     cambiarColor("correo");
@@ -155,23 +145,22 @@ function validarLogin() {
         "Ingrese una contraseña válida, debe tener al menos una mayúscula y un número"
       );
       return false;
-    }else{
-      respuesta
+    } else {
+      respuesta;
     }
   }
 
   $("form").submit();
   return true;
 }
-function clean(){
-$("input").focus(function () {
-  $(".alert").remove();
-  colorDefault("nombre");
-  colorDefault("apellido");
-  colorDefault("correo");
-  colorDefault("contrasena");
-});
-
+function clean() {
+  $("input").focus(function () {
+    $(".alert").remove();
+    colorDefault("nombre");
+    colorDefault("apellido");
+    colorDefault("correo");
+    colorDefault("contrasena");
+  });
 }
 
 // creamos un funcion de color por defecto a los bordes de los inputs
@@ -191,4 +180,53 @@ function cambiarColor(dato) {
 // funcion para mostrar la alerta
 function mostraAlerta(texto) {
   $("#boton").after('<p class="alert">' + texto + "</p>");
+}
+
+function ValidarRecuperacion() {
+  $(".alert").remove();
+  var contrasena = $("#contrasena").val(),
+    conficontrasena = $("#coficontrasena").val();
+
+  if (contrasena == "" || contrasena == null) {
+    cambiarColor("contrasena");
+    mostraAlerta("Campo obligatorio");
+    return false;
+  } else if (contrasena.length < 6 || contrasena > 18) {
+    cambiarColor("contrasena");
+    mostraAlerta("La contraseña debe tener entre 8 y 16 caracteres");
+    return false;
+  } else {
+    var expresion = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z]/;
+    // /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])$/;
+    if (!expresion.test(contrasena)) {
+      cambiarColor("contrasena");
+      mostraAlerta(
+        "Ingrese una contraseña válida, debe tener al menos una mayúscula y un número"
+      );
+      return false;
+    } else {
+      clean();
+    }
+  }
+  
+  if ((conficontrasena == "" || conficontrasena == null)||(conficontrasena != contrasena)) {
+    cambiarColor("conficontrasena");
+    mostraAlerta("Las contraseñas no coinciden");
+    return false;
+    } else {
+      clean();
+    }
+
+  $("form").submit();
+  return true;
+}
+function clean() {
+  $("input").focus(function () {
+    $(".alert").remove();
+    colorDefault("nombre");
+    colorDefault("apellido");
+    colorDefault("correo");
+    colorDefault("contrasena");
+    colorDefault("conficontrasena");
+  });
 }

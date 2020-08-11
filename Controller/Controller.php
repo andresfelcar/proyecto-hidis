@@ -2,6 +2,7 @@
 require_once "historialController.php";
 require_once "Login_Controller.php";
 require_once "FamiliarController.php";
+require_once "PacienteController.php";
 class Controller{
     
     public function Login($option,$array=[]){
@@ -13,7 +14,9 @@ class Controller{
     public function Historial($option,$array=[]){
         return historialController::Main($option,$array);
     }
-  
+    public function Paciente($option,$array=[]){
+        return PacienteController::Main($option,$array);
+    }
 }
 
 ?>

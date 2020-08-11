@@ -63,6 +63,14 @@ function irarriba() {
     
   });
 }
+
+$("#a_restart").on("click",function(e){
+  e.preventDefault();
+  let restablecer = document.getElementById("card_restart");
+  restablecer.style.transform = "translateX(-35px)";
+  restablecer.style.visibility = "visible";
+  restablecer.style.opacity = "1";
+});
 /*window.onload = function(){
     alert("He cargado")
     $("#carga").fadeOut(3000);
