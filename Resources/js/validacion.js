@@ -182,44 +182,6 @@ function mostraAlerta(texto) {
   $("#boton").after('<p class="alert">' + texto + "</p>");
 }
 
-function ValidarRecuperacion() {
-  $(".alert").remove();
-  var contrasena = $("#contrasena").val(),
-    conficontrasena = $("#coficontrasena").val();
-
-  if (contrasena == "" || contrasena == null) {
-    cambiarColor("contrasena");
-    mostraAlerta("Campo obligatorio");
-    return false;
-  } else if (contrasena.length < 6 || contrasena > 18) {
-    cambiarColor("contrasena");
-    mostraAlerta("La contraseña debe tener entre 8 y 16 caracteres");
-    return false;
-  } else {
-    var expresion = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z]/;
-    // /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])$/;
-    if (!expresion.test(contrasena)) {
-      cambiarColor("contrasena");
-      mostraAlerta(
-        "Ingrese una contraseña válida, debe tener al menos una mayúscula y un número"
-      );
-      return false;
-    } else {
-      clean();
-    }
-  }
-  
-  if ((conficontrasena == "" || conficontrasena == null)||(conficontrasena != contrasena)) {
-    cambiarColor("conficontrasena");
-    mostraAlerta("Las contraseñas no coinciden");
-    return false;
-    } else {
-      clean();
-    }
-
-  $("form").submit();
-  return true;
-}
 function clean() {
   $("input").focus(function () {
     $(".alert").remove();
@@ -230,3 +192,13 @@ function clean() {
     colorDefault("conficontrasena");
   });
 }
+
+
+
+function validatePassword() {  var pass1 = document.getElementById("newpw").value;
+  var pass2 = document.getElementById("confirmpw").value;
+  pass1 != pass2
+  ? document.getElementById("confirmpw").setCustomValidity("Las contraseñas no coinciden")
+  : document.getElementById("confirmpw").setCustomValidity('');
+}
+document.getElementById("resetPw").onclick = validatePassword;

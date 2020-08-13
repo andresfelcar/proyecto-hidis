@@ -88,7 +88,7 @@ class Login_Controller
             $stmt->execute();
             echo "<script>
             alert('Contraseña se cambió con exito');
-            window.location='login.php';
+            window.location='index.php?view=';
             </script>";
         }
     }
@@ -152,7 +152,7 @@ class Login_Controller
                 <h1>Restablecer contraseña</h1>
                 <p>Para restablecer su contraseña haga click en el siguiente boton: </p>
 
-                <a href='http://localhost/proyecto-hidis%20ultima%20fase%20v/recuperacion.php?tokens=" . $array[0] . "'><button class='boton'>Restablecer Contraseña</button></a>
+                <a href='http://localhost/proyecto-hidis%20ultima%20fase%20v/index.php?view=recuperacion&tokens=" . $array[0] . "'><button class='boton'>Restablecer Contraseña</button></a>
               </div>
             ";
             $window_restart .= "</body></html>";

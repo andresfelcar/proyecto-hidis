@@ -1,22 +1,25 @@
 <?php
 @session_start();
 require_once "Controller/Controller.php";
-$resultado=$_SESSION['user'];
-if($resultado==null){
-  header("location:index.php"); 
-} 
+$resultado = $_SESSION['user'];
+if ($resultado == null) {
+  header("location:index.php?view=login");
+}
 
 $fami = new Controller();
-$code = $_GET['update_id'];
-if (!empty($_GET['update_id'])) {
-  $familiarvalues = $fami->Historial(0, $_GET['update_id']);
+$code = $_GET['updateid'];
+
+if (isset($code)) {
+  $array=[];
+  array_push($array,$code);
+  $familiarvalues = $fami->Historial(4, $array);
   $items = $familiarvalues->fetch_row();
 }
+
 if (!empty($_POST['gravedad']) && !empty($_POST['recomendacion'])) {
   $array = [];
   array_push(
     $array,
-
     $_POST['gravedad'],
     $_POST['recomendacion'],
     $code
@@ -24,27 +27,26 @@ if (!empty($_POST['gravedad']) && !empty($_POST['recomendacion'])) {
 
   $familia = new Controller();
   $result = $familia->Historial(2, $array);
-  header("Location:historial.php");
+  header("Location:index.php?view=historial");
 }
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <!-- TAGS -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>CARDIO</title>
-  <link rel="icon" href="img/logo.png" />
+  <link rel="icon" href="Resources/img/logo.png" />
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
   <!-- ICONOS-->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="fonts/style.css" />
+  <link rel="stylesheet" href="Resources/css/style.css" />
+  <link rel="stylesheet" href="Resources/fonts/style.css" />
   <!-- CSS -->
-  <link rel="stylesheet" href="css/ingreso.css" />
+  <link rel="stylesheet" href="Resources/css/ingreso.css" />
 </head>
 
 <body>
@@ -73,8 +75,7 @@ if (!empty($_POST['gravedad']) && !empty($_POST['recomendacion'])) {
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlTextarea1">Recomendacion</label>
-                  <textarea name="recomendacion" class="form-control" id="exampleFormControlTextarea1" rows="3"
-                    value="<?php echo $items[3]; ?>">
+                  <textarea name="recomendacion" class="form-control" id="exampleFormControlTextarea1" rows="3" value="<?php echo $items[3]; ?>">
                 </textarea>
                 </div>
                 <div class="form-group text-center">
@@ -91,7 +92,6 @@ if (!empty($_POST['gravedad']) && !empty($_POST['recomendacion'])) {
 
     </div>
   </div>
-  <script src="js/bootstrap.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

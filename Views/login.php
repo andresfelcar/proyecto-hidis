@@ -11,7 +11,7 @@ if (!empty($_POST['email']) && !empty($_POST['pass'])) {
     $resultado = $_SESSION['user'];
 
     if ($resultado != null) {
-        header("location:ingreso.php");
+        header("location:index.php?view=ingreso");
     } else {
         $_SESSION['user'] = null;
         $loginError = "Usuario o contraseña incorrectos";
@@ -37,14 +37,14 @@ if(isset($_POST['btn_restart'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso</title>
-    <link rel="icon" href="img/logo.png">
+    <link rel="icon" href="Resources/img/logo.png">
 
     <!--Bootsraps-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!--Estilo-->
-    <link rel="stylesheet" href="css/register_and_login.css">
+    <link rel="stylesheet" href="Resources/css/register_and_login.css">
     <!-- ICONOS-->
-    <link rel="stylesheet" href="fonts/style.css">
+    <link rel="stylesheet" href="Resources/fonts/style.css">
 </head>
 
 <body class="scroll">
@@ -84,7 +84,7 @@ if(isset($_POST['btn_restart'])){
                     <div class="d-flex justify-content-center links">
                         ¿No tienes una cuenta?
                     </div>
-                    <a href="registro.php" class="btn btn-success d-flex justify-content-center">Registrate</a>
+                    <a href="index.php?view=registro" class="btn btn-success d-flex justify-content-center">Registrate</a>
                 </div>
             </div>
         </div>
@@ -110,7 +110,7 @@ if(isset($_POST['btn_restart'])){
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
-<script src="js/validacion.js"></script>
+<script src="Resources/js/main.js"></script>
+<script src="Resources/js/validacion.js"></script>
 
 </html>

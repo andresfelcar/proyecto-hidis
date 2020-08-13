@@ -39,3 +39,20 @@ body{
 
 .navbar button{margin-left:2%;}
 /*NAV END*/
+
+#contened-forms{
+    position: relative;
+    overflow: hidden;
+    height: 50vh;
+}
+#contened-forms > form{
+    transition:transform 500ms ease, opacity 400ms ease;
+    opacity: 0;
+    position: absolute;
+}
+#contenido-form1{
+    transform: translateX(-600px);
+}
+#contenido-form2{
+    transform: translateX(600px);
+}

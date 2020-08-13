@@ -6,15 +6,14 @@ require_once "Controller/Controller.php";
 $resultado = $_SESSION['user'];
 if ($resultado == null) {
 
-  header("Location:index.php");
+  header("Location:index.php?view=login");
 }
 
 $fami = new Controller();
-$code = $_GET['update_id'];
+$code = $_GET['updateid'];
 //$identificador=1;
-if (!empty($_GET['update_id'])) {
- 
-  $familiarvalues = $fami->Familiar(0,$code);
+if (isset($code)) {
+  $familiarvalues = $fami->Familiar(4,$code);
   $items = $familiarvalues->fetch_row();
 }
 if (!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])) {
@@ -38,26 +37,26 @@ if (!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])) {
 
   $familia = new Controller();
   $result = $familia->Familiar(2, $array);
-  header("Location:familiares.php");
+  header("Location:index.php?view=familiares");
 }
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <!-- TAGS -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>CARDIO</title>
-  <link rel="icon" href="img/logo.png" />
+  <link rel="icon" href="Resources/img/logo.png" />
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
   <!-- ICONOS-->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="fonts/style.css" />
+  <link rel="stylesheet" href="Resources/css/style.css" />
+  <link rel="stylesheet" href="Resources/fonts/style.css" />
   <!-- CSS -->
-  <link rel="stylesheet" href="css/ingreso.css" />
+  <link rel="stylesheet" href="Resources/css/ingreso.css" />
 </head>
 
 <body>

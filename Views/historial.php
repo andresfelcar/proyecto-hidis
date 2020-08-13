@@ -6,7 +6,7 @@ require_once "Controller/Controller.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <!-- TAGS -->
     <meta charset="utf-8" />
@@ -15,7 +15,7 @@ require_once "Controller/Controller.php";
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>CARDIO</title>
-    <link rel="icon" href="img/logo.png" />
+    <link rel="icon" href="Resources/img/logo.png" />
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
@@ -24,47 +24,47 @@ require_once "Controller/Controller.php";
       crossorigin="anonymous"
     />
     <!-- ICONOS-->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="fonts/style.css" />
+    <link rel="stylesheet" href="Resources/css/style.css" />
+    <link rel="stylesheet" href="Resources/fonts/style.css" />
     <!-- CSS -->
-    <link rel="stylesheet" href="css/ingreso.css" />
+    <link rel="stylesheet" href="Resources/css/ingreso.css" />
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light">
-        <img id="logo_nav" src="img/logo.png" alt="logo">
-        <img id="palpitar" src="img/corazon1.gif" alt="corazon">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="ingreso.php">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="historial.php">Recomendaciones</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Historial</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contactos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Notificacion.php">Notificar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="familiares.php">Familiares</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Dispositivo</a>
-                </li>
-              
-            </ul>
-            <a class="btn btn-danger" href="salir.php">Cerrar Sesion</a>
+    <img id="logo_nav" src="Resources/img/logo.png" alt="logo">
+    <img id="palpitar" src="Resources/img/corazon1.gif" alt="corazon">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?view=ingreso">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?view=historial">Recomendaciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Historial</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contactos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?view=notificacion">Notificar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?view=familiares">Familiares</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dispositivo</a>
+        </li>
 
-        </div>
-    </nav>
+      </ul>
+      <a class="btn btn-danger" href="index.php?view=salir">Cerrar Sesion</a>
+
+    </div>
+  </nav>
     <div class="container-fluid mt-4">
       <form action="" method="POST" class="mt-4 mb-5">
         <input type="date" name="fecha1" />
@@ -104,10 +104,10 @@ require_once "Controller/Controller.php";
                         <td><?php echo $mostrar[1] ?></td>
                         <td><?php echo $mostrar[5] ?></td>
                         <td><?php echo $mostrar[4] ?></td>
-                        <td><a class="btn btn-warning"  href="EditarReco.php?update_id=<?php echo $mostrar[0]?>
+                        <td><a class="btn btn-warning"  href="index.php?view=editar_reco&updateid=<?php echo $mostrar[0]?>
                         " title="Editar Familiar"><i class="icon-pencil"></i></a></td>
                         
-                        <td><a  class="btn btn-warning" href="eliminar_reco.php?update_id=<?php echo $mostrar[0]?>
+                        <td><a  class="btn btn-warning" href="index.php?view=eliminar_reco&updateid=<?php echo $mostrar[0]?>
                         " title="Eliminar Historial"><i class="icon-bin"></i></a></td>
                         
                     </tr>
@@ -130,10 +130,10 @@ require_once "Controller/Controller.php";
                         <td><?php echo $mostrar[1] ?></td>
                         <td><?php echo $mostrar[5] ?></td>
                         <td><?php echo $mostrar[4] ?></td>
-                        <td><a class="btn btn-warning"  href="EditarReco.php?update_id=<?php echo $mostrar[0]?>
+                        <td><a class="btn btn-warning"  href="index.php?view=editar_reco&updateid=<?php echo $mostrar[0]?>
                         " title="Editar Familiar"><span class="glyphicon glyphicon-edit">Editar</span></a></td>
                         
-                        <td><a  class="btn btn-warning" href="eliminar_reco.php?update_id=<?php echo $mostrar[0]?>
+                        <td><a  class="btn btn-warning" href="index.php?view=eliminar_reco&updateid=<?php echo $mostrar[0]?>
                         " title="Eliminar Historial"><span class="glyphicon glyphicon-edit">Eliminar</span></a></td>
                         
                  
@@ -144,8 +144,6 @@ require_once "Controller/Controller.php";
             </tbody>
             </table>
     </div>
-
-    <script src="js/bootstrap.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

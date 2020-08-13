@@ -5,20 +5,20 @@ require_once "Controller/Controller.php";
 $resultado= $_SESSION['user'];
 if($resultado == null) {
  
-    header("Location:index.php");
+    header("Location:index.php?view=login");
 
 }
  
 $delete = new Controller();
-$code=$_GET['update_id'];
-if(!empty($_GET['update_id'])){
+$code=$_GET['updateid'];
+if(!empty($_GET['updateid'])){
   
  $array=[];
 
  array_push($array,$code);
 
-    $familiarvalues=$delete->historial(3,$array);
-    header("Location:historial.php");
+    $familiarvalues=$delete->Historial(3,$array);
+    header("Location:index.php?view=historial");
    
 }
 

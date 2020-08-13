@@ -24,20 +24,28 @@ class FamiliarController
             case 3:
                 $result = $familia->Delete($array);
                 break;
+                case 4:
+                    $result = $familia->Consultfamiliaraso($array);
+                    break;
         }
         return $result;
     }
     public function Consult($array)
     {
-
         $conexion = Conexion::connection();
-        
         /*if($array[11]=1){
             $sql = "SELECT * from familiar";
             return $conexion->query($sql);
         }*/
-        
         $sql = "SELECT * from familiar WHERE idpaciente='$array'";
+        
+        return $conexion->query($sql);
+    }
+
+    public function Consultfamiliaraso($array)
+    {
+        $conexion = Conexion::connection();
+        $sql = "SELECT * from familiar WHERE idfamiliar='$array'";
         return $conexion->query($sql);
     }
 

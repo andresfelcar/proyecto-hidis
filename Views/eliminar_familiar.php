@@ -6,14 +6,14 @@ require_once "Controller/Controller.php";
 $resultado= $_SESSION['user'];
 if($resultado == null) {
  
-    header("Location:index.php");
+    header("Location:index.php?view=login");
 
 }
  
 $fami = new Controller();
-$code=$_GET['update_id'];
-if(!empty($_GET['update_id'])){
-    $familiarvalues=$fami->Familiar(0, $_GET['update_id']);
+$code=$_GET['updateid'];
+if(isset($code)){
+    $familiarvalues=$fami->Familiar(4, $code);
     $items =$familiarvalues->fetch_row();
 }
 if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
@@ -23,13 +23,12 @@ if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
     $familia=new Controller();
     $result=$familia->Familiar(3,$array);
     
-    header("Location:familiares.php");
-    
+    header("Location:index.php?view=familiares"); 
   }
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <!-- TAGS -->
     <meta charset="utf-8" />
@@ -38,7 +37,7 @@ if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>CARDIO</title>
-    <link rel="icon" href="img/logo.png" />
+    <link rel="icon" href="Resources/img/logo.png" />
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
@@ -47,10 +46,10 @@ if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
       crossorigin="anonymous"
     />
     <!-- ICONOS-->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="fonts/style.css" />
+    <link rel="stylesheet" href="Resources/css/style.css" />
+    <link rel="stylesheet" href="Resources/fonts/style.css" />
     <!-- CSS -->
-    <link rel="stylesheet" href="css/ingreso.css" />
+    <link rel="stylesheet" href="Resources/css/ingreso.css" />
   </head>
 <body>
 <div class="container">
@@ -114,11 +113,8 @@ if(!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])){
     </div>
         </div>
 </div>
-<script src="js/bootstrap.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    
 </body>
 </html>
