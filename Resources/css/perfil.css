@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Titillium+Web&display=swap');
+
+body{
+    font-family: 'Quicksand', sans-serif;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+}
+
+/*NAV*/
+.navbar {
+    z-index: 100;
+    width: 100%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
+    background: #162936f5;
+  }
+#logo_nav{ 
+    width: 70px;
+    height: 70px;
+    margin-left: 70px;
+}
+#palpitar{
+    width: 35px;
+    height: 25px;
+    margin-right: 2%;
+}
+.bg-font-edit{
+ background-image: url(../img/reservation.png);
+
+}
+@media (max-width:900px){
+    .bg-font-edit{display: none;}
+}
+.tam-doc{
+    height: 685px;
+}
+.navbar-light .navbar-nav .nav-link{color: #ee595f;font-size:20px;}
+.navbar-light .navbar-nav .nav-link:hover{color:#fff;}
+
+.navbar button{margin-left:2%;}
+/*NAV END*/
+
+#contened-forms{
+    position: relative;
+    overflow: hidden;
+    height: 50vh;
+}
+#contened-forms > form{
+    transition:transform 500ms ease, opacity 400ms ease;
+    opacity: 0;
+    position: absolute;
+}
+#contenido-form1{
+    transform: translateX(-600px);
+}
+#contenido-form2{
+    transform: translateX(600px);
+}

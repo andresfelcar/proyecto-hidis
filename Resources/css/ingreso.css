@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Titillium+Web&display=swap');
+
+body{
+    font-family: 'Quicksand', sans-serif;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+}
+
+/*NAV*/
+.navbar {
+    z-index: 100;
+    width: 100%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
+    background: #162936f5;
+  }
+#logo_nav{ 
+    width: 70px;
+    height: 70px;
+    margin-left: 70px;
+}
+#palpitar{
+    width: 35px;
+    height: 25px;
+    margin-right: 2%;
+}
+.bg-font-edit{
+ background-image: url(../img/reservation.png);
+
+}
+@media (max-width:900px){
+    .bg-font-edit{display: none;}
+}
+.tam-doc{
+    height: 685px;
+}
+.navbar-light .navbar-nav .nav-link{color: #ee595f;font-size:20px;}
+.navbar-light .navbar-nav .nav-link:hover{color:#fff;}
+
+.navbar button{margin-left:2%;}
+/*NAV END*/
+
+.fondo{
+    width:100%;
+    height:99vh;
+    background-image: url(../img/bienvenida.png);
+    background-attachment: fixed;
+    background-position: center 0;
+    background-size: cover;
+}
+@media (max-width: 991px) {
+    .fondo{
+        background-position:14% 80px ;
+    }
+  }
+#contenedor_1{
+    width: 100%;
+    height: 1000px;
+    float: left;
+    box-shadow: 0px 10px 10px 10px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    border-top: 5px solid #ee595f;
+}
+
+
+#logo{
+    width:55px;
+    height:55px; 
+    margin:5px 10px;
+}
+
+#cardio{
+    margin:30px 15% ;
+    float: left;
+    width: 70%;
+    height: 565px;
+    background-color: #509ca4;
+    box-shadow: 0px 0px 20px 1px;
+    background-image: url(../img/pulso.gif);
+    background-repeat: no-repeat;
+    background-position: 100%;
+}
+#cardio h2{
+    font-size: 190%;
+    color: white;
+    width: 17%;
+    display: block;
+    margin: 100px 15px ;
+    padding: 3px;
+}
+
