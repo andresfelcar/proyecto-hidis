@@ -11,15 +11,7 @@ jQuery('document').ready(function($){});
 */
 
 window.addEventListener("load", function () {
-  let carga = document.getElementById("carga");
-  let cuerpo = document.getElementsByTagName("body")[0];
-  carga.style.transition = "2s";
-  carga.style.opacity = "0";
-  carga.style.zIndex = "-1";
-  cuerpo.classList.remove("scroll");
-
   setTimeout(efectotext, 3000);
-
   $(document).scroll(function () {
     bajarscroll();
   });
@@ -60,13 +52,7 @@ function irarriba() {
   });
 }
 
-$("#a_restart").on("click", function (e) {
-  e.preventDefault();
-  let restablecer = document.getElementById("card_restart");
-  restablecer.style.transform = "translateX(-35px)";
-  restablecer.style.visibility = "visible";
-  restablecer.style.opacity = "1";
-});
+
 /*window.onload = function(){
     alert("He cargado")
     $("#carga").fadeOut(3000);

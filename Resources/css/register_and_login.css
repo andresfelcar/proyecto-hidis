@@ -11,12 +11,17 @@ font-family: 'Quicksand', sans-serif;
 overflow: hidden;
 }
 .alert{
-    display: block;
+    display: flex;
+    width: 100%;
     padding: 12px 20px;
     background: #f8d7da;
     color: #721c24;
     margin: 10px 0;
     border: 1px solid #f5c6cb;
+}
+.card-login{
+    display: block;
+    width: 300px;
 }
 /*LOADER*/
 #carga{
@@ -36,10 +41,6 @@ overflow: hidden;
     top:50%;
     margin:-50px 0 0 -50px;
 }
-.card{
-	margin-left:40%;
-	margin-top:2%;
-}
 #card_restart{
     transform: translateX(-800px);
     visibility: hidden;
@@ -50,41 +51,8 @@ overflow: hidden;
 	background-color:#ee595e;
 	color:white;
 }
-.contenedor{
-    width:100%;
-    background-color:transparent;
-}
-@media (max-width: 800px) {
-    .contenedor{
-        overflow:hidden;
-        width:100%;
-        margin-top: 2%;
-    }
-    .card{
-        margin-left:22%;
-    }
-}
-@media only screen and (min-width: 351px) and (max-width: 700px) {
-    .contenedor{
-        overflow:hidden;
-        width:100%;
-        margin-top: 2%;
-    }
-    .card{
-        margin-left:14%;
-    }
-}
-@media (max-width: 350px) {
-    .contenedor{
-        overflow:hidden;
-        width:100%;
-        margin-top: 2%;
-    }
-    .card{
-        margin-left:5%;
-    }
-    
-}
+
+
 
 
 

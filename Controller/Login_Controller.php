@@ -65,7 +65,8 @@ class Login_Controller
 
         if ($filas > 0) {
 
-            echo  "<script> alert('Ya existe una cuenta con ese correo ');</script>";
+            echo  "<script> alert('Ya existe una cuenta con ese correo ');
+            Swal.fire('Any fool can use a computer');</script>";
         } else {
             $stmt = $Conexion->prepare("INSERT INTO paciente (nombres,apellidos,correo,contrasena) VALUES (?,?,?,MD5(?))");
             $stmt->bind_param("ssss", $array[0], $array[1], $array[2], $array[3]);
