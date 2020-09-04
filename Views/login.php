@@ -20,7 +20,7 @@ if (!empty($_POST['email']) && !empty($_POST['pass'])) {
     $loginError = "Ingrese los datos";
 }
 
-if (isset($_POST['btn_restart'])) {
+if(isset($_POST['btn_restart'])){
     $cambio = new Controller();
     $array = [];
     $token = uniqid();
@@ -45,8 +45,6 @@ if (isset($_POST['btn_restart'])) {
     <link rel="stylesheet" href="Resources/css/register_and_login.css">
     <!-- ICONOS-->
     <link rel="stylesheet" href="Resources/fonts/style.css">
-    <!-- Alerts-->
-    <link rel="stylesheet" href="Resources/css/sweetalert.css">
 </head>
 
 <body class="scroll">
@@ -55,71 +53,64 @@ if (isset($_POST['btn_restart'])) {
         <div id="carga2"></div>
     </div>
 
-    <div class="container">
-        <div class="row justify-content-center mt-4">
-            
-                <div class="card card-login">
-                    <div class="card-body">
-                        <h4 class="card-title d-flex justify-content-center">Login</h4>
-                        <form method="POST" id="IngresoLogin">
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-mail2"></i></span>
-                                </div>
-                                <input name="email" type="text" class="form-control" placeholder="Correo" id="correo">
+    <div class="contenedor">
 
+        <div class="d-flex">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title d-flex justify-content-center">Login</h4>
+                    <form method="POST">
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="icon-mail2"></i></span>
                             </div>
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-key"></i></span>
-                                </div>
-                                <input name="pass" type="password" class="form-control" placeholder="Contraseña " id="contrasena">
-                            </div>
+                            <input name="email" type="text" class="form-control" placeholder="Correo" id="correo">
 
-                            <div class="form-group">
-                                <button type="submit" class="btn login_btn btn-warning btn-block" id="boton"> Ingresar</button>
-                                <a href="" id="a_restart">¿Olvidó su contraseña?</a>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="card-footer">
-                        <div class="d-flex justify-content-center links">
-                            ¿No tienes una cuenta?
                         </div>
-                        <a href="index.php?view=registro" class="btn btn-success d-flex justify-content-center">Registrate</a>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="row justify-content-center mt-4">
-                <div class="card" id="card_restart">
-                    <div class="card-body">
-                        <h4 class="card-title d-flex justify-content-center">Ingrese su correo</h4>
-
-                        <form action="" method="POST">
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="icon-mail2"></i></span>
-                                </div>
-                                <input name="email_restart" type="email" class="form-control" placeholder="Correo">
-                                <button name="btn_restart" type="submit" class="btn login_btn btn-warning btn-block mt-2">Enviar</button>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="icon-key"></i></span>
                             </div>
-                        </form>
+                            <input name="pass" type="password" class="form-control" placeholder="Contraseña " id="contrasena">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" value="Registrar" class="btn login_btn btn-warning btn-block" id="boton" onclick="validarLogin(e)"> Ingresar</button>
+                            <a href="" id="a_restart">¿Olvidó su contraseña?</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center links">
+                        ¿No tienes una cuenta?
                     </div>
+                    <a href="index.php?view=registro" class="btn btn-success d-flex justify-content-center">Registrate</a>
                 </div>
             </div>
-        
+        </div>
+        <div class="d-flex">
+            <div class="card" id="card_restart">
+                <div class="card-body">
+                    <h4 class="card-title d-flex justify-content-center">Ingrese su correo</h4>
 
-
+                    <form action="" method="POST">
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="icon-mail2"></i></span>
+                            </div>
+                            <input name="email_restart" type="email" class="form-control" placeholder="Correo">
+                            <button name="btn_restart" type="submit" class="btn login_btn btn-warning btn-block">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<script src="Resources/js/loader.js"></script>
-<script src="Resources/js/login.js"></script>
-<script src="Resources/js/sweetalert.min.js"></script>
+<script src="Resources/js/main.js"></script>
+<script src="Resources/js/validacion.js"></script>
 
 </html>
