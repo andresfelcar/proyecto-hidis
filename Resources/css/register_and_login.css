@@ -47,56 +47,12 @@ overflow: hidden;
     opacity: 0;
     transition: all 1s ease;
 }
-#card_restart{
-    transform: translateX(-800px);
-    visibility: hidden;
-    opacity: 0;
-    transition: all 1s ease;
-}
 .input-group-text{
 	background-color:#ee595e;
 	color:white;
 }
-<<<<<<< HEAD:Resources/css/register_and_login.css
 
 
-=======
-.contenedor{
-    width:100%;
-    background-color:transparent;
-}
-@media (max-width: 800px) {
-    .contenedor{
-        overflow:hidden;
-        width:100%;
-        margin-top: 2%;
-    }
-    .card{
-        margin-left:22%;
-    }
-}
-@media only screen and (min-width: 351px) and (max-width: 700px) {
-    .contenedor{
-        overflow:hidden;
-        width:100%;
-        margin-top: 2%;
-    }
-    .card{
-        margin-left:14%;
-    }
-}
-@media (max-width: 350px) {
-    .contenedor{
-        overflow:hidden;
-        width:100%;
-        margin-top: 2%;
-    }
-    .card{
-        margin-left:5%;
-    }
-    
-}
->>>>>>> 79e6972074d64b0d152cd1f1a587fbddc1c8d45f:css/register_and_login.css
 
 
 

@@ -52,17 +52,7 @@ function irarriba() {
   });
 }
 
-<<<<<<< HEAD:Resources/js/main.js
 
-=======
-$("#a_restart").on("click", function (e) {
-  e.preventDefault();
-  let restablecer = document.getElementById("card_restart");
-  restablecer.style.transform = "translateX(-35px)";
-  restablecer.style.visibility = "visible";
-  restablecer.style.opacity = "1";
-});
->>>>>>> 79e6972074d64b0d152cd1f1a587fbddc1c8d45f:js/main.js
 /*window.onload = function(){
     alert("He cargado")
     $("#carga").fadeOut(3000);
