@@ -54,6 +54,8 @@ function validarLogin() {
   return true;
 }
 
+
+
 // creamos un funcion de color por defecto a los bordes de los inputs
 function colorDefault(dato) {
   $("#" + dato).css({
@@ -70,8 +72,11 @@ function cambiarColor(dato) {
 
 // funcion para mostrar la alerta
 function mostraAlerta(texto) {
-  swal('Error',texto,'warning');
   $("#boton").after('<div class="alert">' + texto + "</div>");
+}
+function mostraAlerta2(texto) {
+  //swal('Error',texto,'warning');
+  $("#btn_restart").after('<div class="alert">' + texto + "</div>");
 }
 
 function cleana() {
@@ -79,8 +84,55 @@ function cleana() {
     $(".alert").remove();
     colorDefault("correo");
     colorDefault("contrasena");
+    colorDefault("email_restart");
   });
   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Changepass(){
+  $(".alert").remove();
+  var correo = $("#email_restart").val();
+  limpiar= cleana();
+  if (correo == "" || correo == null) {
+    cambiarColor("email_restart");
+    mostraAlerta2("Campo obligatorio");
+    return false;
+  } else {
+    var expresion = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    // /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (!expresion.test(correo)) {
+      cambiarColor("email_restart");
+      mostraAlerta2("Ingrese un correo válido");
+      return false;
+    }
+    else{
+      limpiar;
+    }
+  }
+  $("#changepass").submit();
+  return true;
 }
 //Animación para el formulario
 $("#a_restart").on("click", function (e) {
@@ -90,3 +142,9 @@ $("#a_restart").on("click", function (e) {
   restablecer.style.visibility = "visible";
   restablecer.style.opacity = "1";
 });
+
+$("#btn_restart").on("click", function (e) {
+  e.preventDefault();
+  Changepass();
+});
+

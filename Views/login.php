@@ -14,13 +14,11 @@ if (!empty($_POST['email']) && !empty($_POST['pass'])) {
         header("location:index.php?view=ingreso");
     } else {
         $_SESSION['user'] = null;
-        $loginError = "Usuario o contraseña incorrectos";
+        echo "<script>alert('No fue posible encontrar el usuario');</script>";
     }
-} else {
-    $loginError = "Ingrese los datos";
 }
 
-if (isset($_POST['btn_restart'])) {
+if ((!empty($_POST['email_restart']))||(isset($_POST['btn_restart']))) {
     $cambio = new Controller();
     $array = [];
     $token = uniqid();
@@ -56,7 +54,7 @@ if (isset($_POST['btn_restart'])) {
     </div>
 
     <div class="container">
-        <div class="row justify-content-center mt-4">
+        <div class="row justify-content-center pt-4">
             
                 <div class="card card-login">
                     <div class="card-body">
@@ -94,17 +92,17 @@ if (isset($_POST['btn_restart'])) {
 
 
             <div class="row justify-content-center mt-4">
-                <div class="card" id="card_restart">
+                <div class="card card-login2" id="card_restart">
                     <div class="card-body">
                         <h4 class="card-title d-flex justify-content-center">Ingrese su correo</h4>
 
-                        <form action="" method="POST">
+                        <form action="" method="POST" id="changepass">
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="icon-mail2"></i></span>
                                 </div>
-                                <input name="email_restart" type="email" class="form-control" placeholder="Correo">
-                                <button name="btn_restart" type="submit" class="btn login_btn btn-warning btn-block mt-2">Enviar</button>
+                                <input name="email_restart" type="email" class="form-control" placeholder="Correo" id="email_restart">
+                                <button name="btn_restart" type="submit" class="btn login_btn btn-warning btn-block mt-2" id="btn_restart">Enviar</button>
                             </div>
                         </form>
                     </div>
