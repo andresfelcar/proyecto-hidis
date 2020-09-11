@@ -1,3 +1,9 @@
+/* Se valida los campos del registro, al presionar el botón de enviar
+se condiciona con expresiones regulares, ninguno de los campos puede estar vacio, si todo cumple a cabalidad
+con las caracteristicas se le permite el registro a la plataforma, de lo contrario se muestra una alerta 
+que le permite saber al usuario lo que está haciendo de manera erronea y se cambia de color rojo el input   
+en el cual comete el error*/
+
 function validarFormulario() {
   $(".alert").remove();
 
@@ -108,19 +114,6 @@ function mostraAlerta(texto) {
   swal('Error', 'Campos obligatorios, por favor llena el email y las claves', 'warning');
   $("#boton").after('<p class="alert">' + texto + "</p>");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*function validatePassword() {  var pass1 = document.getElementById("newpw").value;
   var pass2 = document.getElementById("confirmpw").value;

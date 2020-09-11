@@ -1,4 +1,7 @@
 <?php
+/* Creamos la clase router la cual funciona en conjunto con el archivo index.
+En esta clase se crean métodos los cuales corresponden al nombre de cada una de las vistas 
+éstas redireccionan al usuario según el método solicitado*/
     class Router{
         function index(){
             include_once("Views/index.php");

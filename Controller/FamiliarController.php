@@ -1,5 +1,10 @@
 <?php
 
+/* Este archivo es el controlador específico para el tipo de usuario: FAMILIAR
+ en el se requiere la conexion, se crea una clase con el nombre del modulo que posteriormente será instanciada
+ en el método principal para condicionar que función del CRUD se va a ejecutar (mediante un SWITCH), cada una de las funciones
+ son consultas a la base de datos segun la opción que viene desde el controlador principal CONTROLLER.php y a su
+ vez este trae la informació desde la vista. Dichas funciones del CRUD devuelve una respuesta para el usuario*/
 require_once "Modelo/Conexion.php";
 
 class FamiliarController
@@ -24,9 +29,9 @@ class FamiliarController
             case 3:
                 $result = $familia->Delete($array);
                 break;
-                case 4:
-                    $result = $familia->Consultfamiliaraso($array);
-                    break;
+            case 4:
+                $result = $familia->Consultfamiliaraso($array);
+                break;
         }
         return $result;
     }
@@ -38,7 +43,7 @@ class FamiliarController
             return $conexion->query($sql);
         }*/
         $sql = "SELECT * from familiar WHERE idpaciente='$array'";
-        
+
         return $conexion->query($sql);
     }
 
@@ -73,9 +78,7 @@ class FamiliarController
     }
     public function Delete($array)
     {
-        echo "entro al delete";
         $conexion = Conexion::connection();
-
         $sql = "DELETE FROM familiar WHERE idfamiliar='$array[0]'";
         $stmt = $conexion->prepare($sql);
         $stmt->execute();

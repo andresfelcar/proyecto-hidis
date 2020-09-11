@@ -1,5 +1,12 @@
 <?php
-class historialController
+/* Este archivo es el controlador específico para el modulo: HISTORIAL este está asociado al tipo de usuario PACIENTE
+ en el se requiere la conexion, se crea una clase con el nombre del modulo que posteriormente será instanciada
+ en el método principal para condicionar que función del CRUD se va a ejecutar (mediante un SWITCH), cada una de las funciones
+ son consultas a la base de datos segun la opción que viene desde el controlador principal (CONTROLLER.php) y a su
+ vez este trae la informació desde la vista. Dichas funciones del CRUD devuelve una respuesta para el usuario*/
+ require_once "Modelo/Conexion.php";
+ 
+ class historialController
 {
     private function __construct()
     {
@@ -49,9 +56,8 @@ class historialController
     {
         $conexion = conexion::connection();
         $sql = "SELECT * from evento WHERE idevento = '$array[0]'";
-        $result= $conexion->query($sql);
+        $result = $conexion->query($sql);
         return $result;
-
     }
     public function Insert($array)
     {
@@ -89,7 +95,6 @@ class historialController
     {
 
         $conexion = conexion::connection();
-
         $sql = "DELETE FROM evento WHERE idevento=?";
         $stmt = $conexion->prepare($sql);
         $stmt->bind_param("i", $array[0]);
