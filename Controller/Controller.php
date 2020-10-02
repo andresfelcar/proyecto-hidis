@@ -6,6 +6,7 @@ require_once "historialController.php";
 require_once "Login_Controller.php";
 require_once "FamiliarController.php";
 require_once "PacienteController.php";
+require_once "CharController.php";
 /* Pedimos los archivos necesarios de cada uno de los controladores específicos*/
 class Controller{
     
@@ -20,6 +21,9 @@ class Controller{
     }
     public function Paciente($option,$array=[]){
         return PacienteController::Main($option,$array);
+    }
+    public function Char($option){
+        return Char_Controller::Main($option);
     }
     /*Métodos(funciones) con el nombre de los módulos, estos tienen como parámetro una opción 
     y un arreglo con los datos provenientes de cada vista estos métodos devuelven el valor de las consultas 

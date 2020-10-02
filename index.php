@@ -15,6 +15,10 @@
     con ese nombre en el controlador, si es asi lo envía a la vista correspondiente de lo contrario 
     lo envia directo a la página principal*/
         if (method_exists($router,$name)) {
+            if(!empty($_GET['op'])){
+                $router->$name($_GET['op']);
+                return;
+            }
             $router->$name();
         }else{
             $router->index();

@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Titillium+Web&display=swap');
+body{
+    font-family: 'Quicksand', sans-serif;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #195680;
+}
+h2{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    padding-top: 15px;
+}
+
+/*NAV*/
+.navbar {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
+    background: #162936f5;
+  }
+#logo_nav{ 
+    width: 70px;
+    height: 70px;
+    margin-left: 70px;
+}
+#palpitar{
+    width: 35px;
+    height: 25px;
+    margin-right: 2%;
+}
+.bg-font-edit{
+    background-image: url(../img/reservation.png);
+   
+   }
+   @media (max-width:900px){
+       .bg-font-edit{display: none;}
+   }
+   .tam-doc{
+       height: 685px;
+   }
+   .navbar-light .navbar-nav .nav-link{color: #ee595f;font-size:20px;}
+   .navbar-light .navbar-nav .nav-link:hover{color:#fff;}
+   
+   .navbar button{margin-left:2%;}
+   /*NAV END*/
+   
+   .fondo{
+       width:100%;
+       height:99vh;
+       background-image: url(../img/bienvenida.png);
+       background-attachment: fixed;
+       background-position: center 0;
+       background-size: cover;
+   }
+   @media (max-width: 991px) {
+       .fondo{
+           background-position:14% 80px ;
+       }
+     }
+   .contend-1{
+       width: 100%;
+       text-align: center;
+       border-top: 5px solid #ee595f;
+       padding-bottom: 50px;
+   }
+   #gra-title{
+       font-size: 26px;
+       padding: 40px 0 5px 0;
+       color: 0 0 10px 0 #218ed6;
+       font-weight: bold;
+   }
+   #google-canvas{
+       width: 100%;
+       height: 90vh;
+       border-radius: 10px;
+   }
+   #content-map-title{
+       font-weight: bold;
+       font-size: 16px;
+   }
+   
+   
+   

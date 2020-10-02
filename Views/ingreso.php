@@ -5,13 +5,13 @@ $resultado = $_SESSION['user'];
 if ($resultado == null) {
     header("location:index.php?view=login");
 }
- if ($resultado != null) {
+if ($resultado != null) {
     $idpaciente = $resultado[0];
     $control = new Controller();
     $paciente = $control->Paciente(0, $idpaciente);
     $mostrar = $paciente->fetch_row();
- }   
-    
+}
+
 
 ?>
 
@@ -26,21 +26,19 @@ if ($resultado == null) {
     <title>CARDIO</title>
     <link rel="icon" href="Resources/img/logo.png">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- ICONOS-->
     <link rel="stylesheet" href="Resources/css/style.css">
     <link rel="stylesheet" href="Resources/fonts/style.css">
     <!-- CSS -->
-    <link rel="stylesheet" href="Resources/css/ingreso.css">
+    <link rel="stylesheet" href="Resources/css/entrar.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <img id="logo_nav" src="Resources/img/logo.png" alt="logo">
         <img id="palpitar" src="Resources/img/corazon1.gif" alt="corazon">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -67,7 +65,7 @@ if ($resultado == null) {
                     <a class="nav-link" href="#">Dispositivo</a>
                 </li>
                 <li class="nav-item">
-            
+
                     <a class="nav-link" href="index.php?view=perfil"><?php echo $mostrar[1]; ?></a>
                 </li>
 
@@ -77,24 +75,29 @@ if ($resultado == null) {
         </div>
     </nav>
     <div class="fondo"></div>
-    <div id="contenedor_1">
 
-        <h2>CARDIO</h2>
-        <div id="cardio">
-            <i class="icon-warning"> Panico</i>
+    <div class="contend-1">
+        <div class="container">
+            <p class="text-center" id="gra-title">Hola <?php echo $mostrar[1]; ?> estas son tus pulsaciones</p>
+            <canvas id="ChartPulse"></canvas>
+            <button class="btn btn-warning" id="activator">Iniciar</button>
         </div>
+        <div class="container">
+        <p class="text-center" id="gra-title">¿Deseas conocer las clinicas cercanas a ti?</p>
+            <div id="google-canvas"></div>
+        </div>
+        
     </div>
     <!-- SCRIPTS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-    </script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- GOOGLE MAPS API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsoIUo1Lu3ki3Fsvi_HsYoy-hCaOQuUBo&sensor=false"></script>
+    <!-- CHART JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <script src="Resources/js/chart.js"></script>
+    
 </body>
 
 </html>
