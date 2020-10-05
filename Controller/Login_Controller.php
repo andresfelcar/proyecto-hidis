@@ -124,7 +124,6 @@ class Login_Controller
             $window_restart .= "
             .container-msg{
               width: 100%;
-              background: #ccc;
               text-align: center;
             }
             .boton{
@@ -134,8 +133,9 @@ class Login_Controller
               border-style: none;
               border: 1px solid gray;
               box-shadow: 2px 2px 4px 0 black;
-              background: orange;
+              background: #2f6081f5;
               cursor: pointer;
+              color:white;
             }
             a{
               text-decoration: none;
@@ -143,7 +143,7 @@ class Login_Controller
               color: black;
             }
             a:hover > .boton{
-              color: white;
+              background: #ee595f;
               box-shadow: 1px 1px 2px 0 black;
             }
             ";

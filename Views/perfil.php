@@ -26,7 +26,12 @@ if (!empty($_POST['nombrePac']) && !empty($_POST['apellidoPac'])) {
     $result = $edpaciente->Paciente(1, $array);
     header("location:index.php?view=perfil");
 }
-
+if(isset($_POST['del-acount'])){
+    error_reporting(E_ALL ^ E_NOTICE);
+    $elpaciente = new Controller();
+    $result = $elpaciente->Paciente(2, $idpaciente);
+    header("location:index.php?view=login");
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -108,12 +113,12 @@ if (!empty($_POST['nombrePac']) && !empty($_POST['apellidoPac'])) {
                 <div class="row justify-content-around">
                         <div class="form-group col-xl-6 col-md-8 col-sm-12">
                             <label for="exampleFormControlInput1 mt-4">Nombre</label>
-                            <input name="nombrePac" type="text" class="form-control" placeholder="nombre del familiar" required value="<?php echo $mostrar[1]; ?>">
+                            <input name="nombrePac" type="text" class="form-control" placeholder="Nombre" required value="<?php echo $mostrar[1]; ?>">
                         </div>
 
                         <div class="form-group col-xl-6 col-md-8 col-sm-12"">
                             <label for="exampleFormControlInput1 mt-4">Apellido</label>
-                            <input name="apellidoPac" type="text" class="form-control" placeholder="apellido del familiar" required value="<?php echo $mostrar[2]; ?>">
+                            <input name="apellidoPac" type="text" class="form-control" placeholder="Apellido" required value="<?php echo $mostrar[2]; ?>">
                         </div>
                 </div>
                 <button type="submit" class="btn btn-success w-50 m-auto">Listo</button>

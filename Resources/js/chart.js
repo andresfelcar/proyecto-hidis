@@ -2,7 +2,6 @@ window.addEventListener("load",function(){
     Consult();
 });
 setTimeout(Mapa,1000);
-//setInterval(Insert,10000);
 
 
 

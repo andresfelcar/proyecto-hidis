@@ -47,7 +47,7 @@ class PacienteController
     }
     public function Delete($array){
         $conexion = Conexion::connection();
-        $sql = "DELETE FROM paciente WHERE idpaciente='$array[0]'";
+        $sql = "UPDATE paciente SET contrasena='' WHERE idpaciente='$array'";
         $stmt = $conexion->prepare($sql);
         $stmt->execute();
     }
