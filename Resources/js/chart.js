@@ -162,8 +162,8 @@ function Mapa(){
   };
   map = new google.maps.Map(document.getElementById("google-canvas"), mapOptions);
   navigator.geolocation.getCurrentPosition(function(position){
-    var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    
+  var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
     if (geolocate!=null) {
       var infoW = new google.maps.InfoWindow({
         map: map, 
