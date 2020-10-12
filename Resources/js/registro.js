@@ -111,7 +111,6 @@ function cambiarColor(dato) {
 
 // funcion para mostrar la alerta
 function mostraAlerta(texto) {
-  swal('Error', 'Campos obligatorios, por favor llena el email y las claves', 'warning');
   $("#boton").after('<p class="alert">' + texto + "</p>");
 }
 

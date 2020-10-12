@@ -4,19 +4,18 @@
 require_once "Controller/Controller.php";
 
 $resultado = $_SESSION['user'];
-
 if ($resultado == null) {
+
   header("Location:index.php?view=login");
 }
 
 $fami = new Controller();
 $code = $_GET['updateid'];
-
+//$identificador=1;
 if (isset($code)) {
   $familiarvalues = $fami->Familiar(4,$code);
   $items = $familiarvalues->fetch_row();
 }
-
 if (!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])) {
   $array = [];
   array_push(
@@ -32,8 +31,8 @@ if (!empty($_POST['nombreF']) && !empty($_POST['apellidoF'])) {
     $_POST['direccionlF'],
     $_POST['codigoP'],
     $_POST['contraseñaF'],
-    $code //$identificador (ID)
-    
+    $code
+    //$identificador
   );
 
   $familia = new Controller();

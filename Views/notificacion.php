@@ -11,14 +11,20 @@ require_once "Controller/Controller.php";
 if(!empty($_POST['nombredoctor']) && !empty($_POST['recomendacion'])){
  $array=[];
  array_push($array,$_POST['nombredoctor'],$_POST['nombreP'],
- $_POST['gravedad'],$_POST['recomendacion']);
+ $_POST['gravedad'],$_POST['recomendacion'],$_POST['codigoP']);
 
 $histori= new Controller();
 $result=$histori->Historial(1,$array);
 
-
-
 }
+if ($resultado != null) {
+  $idpaciente = $resultado[0];
+  $control = new Controller();
+  $paciente = $control->Paciente(0, $idpaciente);
+  $mostrar = $paciente->fetch_row();
+} 
+
+if ($_SESSION['user'][6]==3) {
 ?>
 
 
@@ -55,28 +61,27 @@ $result=$histori->Historial(1,$array);
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?view=ingreso">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?view=historial">Recomendaciones</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Historial</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contactos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?view=notificacion">Notificar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?view=familiares">Familiares</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Dispositivo</a>
-        </li>
-
+        <?php 
+                
+                if($mostrar[6]==1){
+                  echo '<li><a class="nav-link" href="index.php?view=ingreso">Inicio</a></li>';
+                  echo '<li><a class="nav-link" href="index.php?view=historial">Recomendaciones</a>';
+                  echo '<li><a class="nav-link" href="index.php?view=familiares">Familiares</a></li>';
+                  echo '<li><a class="nav-link" href="index.php?view=dispositivo">Dispositivo</a></li>';
+                  
+                      }
+                      if($mostrar[6]==2){
+                  echo '<li><a class="nav-link" href="index.php?view=ingreso">Inicio</a></li>';
+                  echo '<li><a class="nav-link" href="index.php?view=historial">Recomendaciones</a></li>';
+                  echo '<li><a class="nav-link" href="index.php?view=dispositivo">Dispositivo</a></li>';
+                      }
+                      if($mostrar[6]==3){
+                  echo '<li><a class="nav-link" href="index.php?view=notificacion">Notificar</a></li>';
+                  echo '<li><a class="nav-link" href="index.php?view=dispositivo">Dispositivo</a></li>';
+                  echo '';
+                }
+                ?>
+      <li><a class="nav-link" href="index.php?view=Perfil"><?php echo $mostrar[1]?></a></li>
       </ul>
       <a class="btn btn-danger" href="index.php?view=salir">Cerrar Sesion</a>
 
@@ -98,14 +103,11 @@ $result=$histori->Historial(1,$array);
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Paciente</label>
-            <select name="nombreP" class="form-control" id="exampleFormControlSelect1">
-              <option>Paciente...</option>
-              <option>Andres Caro</option>
-              <option>Gustavo Adolfo</option>
-              <option>Juan David</option>
-              <option>Nairo Quintana</option>
-              <option>Llormi</option>
-            </select>
+            <input type="text" name="nombreP" class="form-control" placeholder="Nombre Paciente" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Codigo Paciente</label>
+            <input type="text" name="codigoP" class="form-control" placeholder="Codigo Paciente" aria-label="Username" aria-describedby="basic-addon1">
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Gravedad</label>
@@ -140,8 +142,14 @@ $result=$histori->Historial(1,$array);
   <body>
     <!-- SCRIPTS -->
     <script src="js/bootstrap.js"></script>
+    <script src="./Resoruces/js/miselector.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>
+<?php
+}else{
+  header('location:index.php?view=ingreso');
+}
+?>

@@ -26,12 +26,7 @@ if (!empty($_POST['nombrePac']) && !empty($_POST['apellidoPac'])) {
     $result = $edpaciente->Paciente(1, $array);
     header("location:index.php?view=perfil");
 }
-if(isset($_POST['del-acount'])){
-    error_reporting(E_ALL ^ E_NOTICE);
-    $elpaciente = new Controller();
-    $result = $elpaciente->Paciente(2, $idpaciente);
-    header("location:index.php?view=login");
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -60,28 +55,28 @@ if(isset($_POST['del-acount'])){
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?view=ingreso">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?view=historial">Recomendaciones</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Historial</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contactos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?view=notificacion">Notificar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?view=familiares">Familiares</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Dispositivo</a>
-        </li>
-
+          
+        <?php 
+                
+                if($mostrar[6]==1){
+                  echo '<li><a class="nav-link" href="index.php?view=ingreso">Inicio</a></li>';
+                  echo '<li><a class="nav-link" href="index.php?view=historial">Historial</a>';
+                  echo '<li><a class="nav-link" href="index.php?view=familiares">Familiares</a></li>';
+                  echo '<li><a class="nav-link" href="index.php?view=dispositivo">Dispositivo</a></li>';
+                  
+                      }
+                      if($mostrar[6]==2){
+                  echo '<li><a class="nav-link" href="index.php?view=ingreso">Inicio</a></li>';
+                  echo '<li><a class="nav-link" href="index.php?view=historial">Historial</a></li>';
+                  echo '<li><a class="nav-link" href="index.php?view=dispositivo">Dispositivo</a></li>';
+                      }
+                      if($mostrar[6]==3){
+                  echo '<li><a class="nav-link" href="index.php?view=notificacion">Notificar</a></li>';
+                  echo '<li><a class="nav-link" href="index.php?view=dispositivo">Dispositivo</a></li>';
+                  echo '';
+                }
+                ?>
+      <li><a class="nav-link" href="index.php?view=Perfil"><?php echo $mostrar[1]?></a></li>
       </ul>
       <a class="btn btn-danger" href="index.php?view=salir">Cerrar Sesion</a>
 
@@ -113,12 +108,12 @@ if(isset($_POST['del-acount'])){
                 <div class="row justify-content-around">
                         <div class="form-group col-xl-6 col-md-8 col-sm-12">
                             <label for="exampleFormControlInput1 mt-4">Nombre</label>
-                            <input name="nombrePac" type="text" class="form-control" placeholder="Nombre" required value="<?php echo $mostrar[1]; ?>">
+                            <input name="nombrePac" type="text" class="form-control" required value="<?php echo $mostrar[1]; ?>">
                         </div>
 
                         <div class="form-group col-xl-6 col-md-8 col-sm-12"">
                             <label for="exampleFormControlInput1 mt-4">Apellido</label>
-                            <input name="apellidoPac" type="text" class="form-control" placeholder="Apellido" required value="<?php echo $mostrar[2]; ?>">
+                            <input name="apellidoPac" type="text" class="form-control" required value="<?php echo $mostrar[2]; ?>">
                         </div>
                 </div>
                 <button type="submit" class="btn btn-success w-50 m-auto">Listo</button>

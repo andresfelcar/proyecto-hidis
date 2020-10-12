@@ -6,7 +6,3 @@ window.addEventListener("load", function () {
     carga.style.zIndex = "-1";
     cuerpo.classList.remove("scroll");
 });
- /*Este archivo realiza la funcion de mostar un loader mientras la página carga 
- lo que hace es que mientras la ventana esté cargando agrega una transición a la propiedad carga
- le quita la opacidad y lo coloca sobre los elementos de la pantalla como una capa
- cuando la página termine de cargar muestra la barra de scroll(verical) para usarla convencionalmente*/

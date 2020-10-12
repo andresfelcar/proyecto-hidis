@@ -10,7 +10,6 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- ICONOS-->
-    <link rel="stylesheet" href="Resources/css/style.css">
     <link rel="stylesheet" href="Resources/fonts/style.css">
     <!-- CSS -->
     <link rel="stylesheet" href="Resources/css/index.css">

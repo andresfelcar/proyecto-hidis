@@ -1,12 +1,5 @@
 <?php
-/* Este archivo es el controlador específico para el modulo: HISTORIAL este está asociado al tipo de usuario PACIENTE
- en el se requiere la conexion, se crea una clase con el nombre del modulo que posteriormente será instanciada
- en el método principal para condicionar que función del CRUD se va a ejecutar (mediante un SWITCH), cada una de las funciones
- son consultas a la base de datos segun la opción que viene desde el controlador principal (CONTROLLER.php) y a su
- vez este trae la informació desde la vista. Dichas funciones del CRUD devuelve una respuesta para el usuario*/
- require_once "Modelo/Conexion.php";
- 
- class historialController
+class historialController
 {
     private function __construct()
     {
@@ -31,6 +24,10 @@
             case 4:
                 $result = $histo->Consultforid($array);
                 break;
+            case 5:
+                $result = $histo->ViewReco($array);
+            break;
+
         }
         return $result;
     }
@@ -54,10 +51,13 @@
     }
     public function Consultforid($array)
     {
+      
         $conexion = conexion::connection();
-        $sql = "SELECT * from evento WHERE idevento = '$array[0]'";
-        $result = $conexion->query($sql);
+        
+        $sql = "SELECT * from evento WHERE idpaciente = '$array'";
+        $result= $conexion->query($sql);
         return $result;
+
     }
     public function Insert($array)
     {
@@ -71,12 +71,14 @@
             $_POST['nombredoctor'],
             $_POST['nombreP'],
             $_POST['gravedad'],
-            $_POST['recomendacion']
+            $_POST['recomendacion'],
+            $_POST['codigoP']
+
         );
 
-        $stmt = $conexion->prepare("INSERT INTO evento (notificacion,nombreP,gravedad,fecha_suceso,recomendacion)
-       VALUES (?,?,?,'$date',?)");
-        $stmt->bind_param("ssss", $array[0], $array[1], $array[2], $array[3]);
+        $stmt = $conexion->prepare("INSERT INTO evento (notificacion,nombreP,gravedad,fecha_suceso,recomendacion,idpaciente)
+       VALUES (?,?,?,'$date',?,?)");
+        $stmt->bind_param("ssssi", $array[0], $array[1], $array[2], $array[3],$array[4]);
         $stmt->execute();
         return $stmt;
     }
@@ -95,9 +97,27 @@
     {
 
         $conexion = conexion::connection();
+
         $sql = "DELETE FROM evento WHERE idevento=?";
         $stmt = $conexion->prepare($sql);
         $stmt->bind_param("i", $array[0]);
         $stmt->execute();
     }
+
+    public function ViewReco($array)
+    {
+        
+        
+
+        $conexion = conexion::connection();
+        
+        $sql = "SELECT * from evento WHERE idevento = '$array[0]'";
+        $result= $conexion->query($sql);
+        return $result;
+        
+    
+    }
+
+  
+    
 }

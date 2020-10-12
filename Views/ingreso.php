@@ -12,9 +12,10 @@ if ($resultado != null) {
     $mostrar = $paciente->fetch_row();
 }
 
-
+if ($_SESSION['user'][6]==3) {
+    header('location:index.php?view=notificacion');
+}
 ?>
-
 
 <!doctype html>
 <html lang="es">
@@ -46,24 +47,23 @@ if ($resultado != null) {
                 <li class="nav-item">
                     <a class="nav-link" href="index.php?view=ingreso">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?view=historial">Recomendaciones</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Historial</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contactos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?view=notificacion">Notificar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?view=familiares">Familiares</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Dispositivo</a>
-                </li>
+                <?php
+
+                if ($mostrar[6] == 1) {
+                    echo '<li><a class="nav-link" href="index.php?view=historial">Historial</a>';
+                    echo '<li><a class="nav-link" href="index.php?view=familiares">Familiares</a></a></li>';
+                    echo '<li><a class="nav-link" href="index.php?view=dispositivo">Dispositivo</a></li>';
+                }
+                if ($mostrar[6] == 2) {
+                    echo '<li><a class="nav-link" href="index.php?view=historial">Historial</a>';
+                    echo '<li><a class="nav-link" href="index.php?view=dispositivo">Dispositivo</a></li>';
+                }
+                if ($mostrar[6] == 3) {
+                    echo '<li><a class="nav-link" href="index.php?view=notificacion">Notificar</a></li>';
+                    echo '<li><a class="nav-link" href="index.php?view=dispositivo">Dispositivo</a></li>';
+                }
+                ?>
+
                 <li class="nav-item">
 
                     <a class="nav-link" href="index.php?view=perfil"><?php echo $mostrar[1]; ?></a>
@@ -83,10 +83,10 @@ if ($resultado != null) {
             <button class="btn btn-warning" id="activator">Iniciar</button>
         </div>
         <div class="container">
-        <p class="text-center" id="gra-title">¿Deseas conocer las clinicas cercanas a ti?</p>
+            <p class="text-center" id="gra-title">¿Deseas conocer las clinicas cercanas a ti?</p>
             <div id="google-canvas"></div>
         </div>
-        
+
     </div>
     <!-- SCRIPTS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -97,7 +97,7 @@ if ($resultado != null) {
     <!-- CHART JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
     <script src="Resources/js/chart.js"></script>
-    
+
 </body>
 
 </html>

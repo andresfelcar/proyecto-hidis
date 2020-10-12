@@ -6,7 +6,7 @@ if (!empty($_POST['nombre']) && !empty($_POST['contraseña'])) {
 
     $array = [];
 
-    array_push($array, $_POST['nombre'], $_POST['apellido'], $_POST['correo'], $_POST['contraseña']);
+    array_push($array, $_POST['nombre'], $_POST['apellido'], $_POST['correo'], $_POST['contraseña'],$_POST['tipoU']);
     $register = new Controller();
     $result = $register->Login(1, $array);
 }
@@ -50,7 +50,7 @@ if (!empty($_POST['nombre']) && !empty($_POST['contraseña'])) {
                                 <span class="input-group-text"><i class="icon-user"></i></span>
                             </div>
 
-                            <select name="gravedad" class="form-control" id="exampleFormControlSelect1">
+                            <select name="tipoU" class="form-control" id="exampleFormControlSelect1">
                                 <option>Tipo Usuario</option>
                                 <option>Medico</option>
                                 <option>Familiar</option>

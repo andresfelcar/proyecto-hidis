@@ -1,8 +1,5 @@
 <?php
 require_once "Controller/Controller.php";
-/* Creamos la clase router la cual funciona en conjunto con el archivo index.
-En esta clase se crean métodos los cuales corresponden al nombre de cada una de las vistas 
-éstas redireccionan al usuario según el método solicitado*/
 class Router
 {
     function index()
@@ -61,6 +58,14 @@ class Router
     {
         include_once("Views/eliminar_reco.php");
     }
+    function Print_Reco()
+    {
+        include_once("Views/Print_Reco.php");
+    }
+    function dispositivo()
+    {
+        include_once("Views/dispositivo.php");
+    }
     public function chargrap($op)
     {
         switch ($op) {
@@ -78,8 +83,8 @@ class Router
                 while ($row = mysqli_fetch_array($result)) {
 
                     $json[] = array(
-                        'date' => $row['fecha'],
-                        'bpm' => $row['bpm']
+                        'bpm' => $row['bpm'],
+                        'date' => $row['fecha']
                     );
                 }
                 $jsonstring = json_encode($json);

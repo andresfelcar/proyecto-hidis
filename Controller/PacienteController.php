@@ -1,9 +1,5 @@
 <?php
-/* Este archivo es el controlador específico para el tipo de usuario: PACIENTE
- en el se requiere la conexion, se crea una clase con el nombre del modulo que posteriormente será instanciada
- en el método principal para condicionar que función del CRUD se va a ejecutar (mediante un SWITCH), cada una de las funciones
- son consultas a la base de datos segun la opción que viene desde el controlador principal CONTROLLER.php y a su
- vez este trae la informació desde la vista. Dichas funciones del CRUD devuelve una respuesta para el usuario*/
+
 require_once "Modelo/Conexion.php";
 
 class PacienteController
@@ -46,9 +42,13 @@ class PacienteController
         $stmt->execute();
     }
     public function Delete($array){
+
         $conexion = Conexion::connection();
-        $sql = "UPDATE paciente SET contrasena='' WHERE idpaciente='$array'";
+
+        $sql = "DELETE FROM paciente WHERE idpaciente='$array[0]'";
         $stmt = $conexion->prepare($sql);
         $stmt->execute();
     }
 }
+
+?>

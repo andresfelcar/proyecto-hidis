@@ -5,11 +5,10 @@ setTimeout(Mapa,1000);
 
 
 
-
 function Insert() {
   $.ajax({
     url:
-      "http://localhost/proyecto-hidis%20ultima%20fase%20v/index.php?view=chargrap&op=insert",
+      "http://localhost/proyecto-hidis/index.php?view=chargrap&op=insert",
     type: "POST",
     success: function (response) {
       Consult();
@@ -21,10 +20,11 @@ function Insert() {
 function Consult() {
   $.ajax({
     url:
-      "http://localhost/proyecto-hidis%20ultima%20fase%20v/index.php?view=chargrap&op=consult",
+      "http://localhost/proyecto-hidis/index.php?view=chargrap&op=consult",
     type: "GET",
     success: function (response) {
       var datos = JSON.parse(response);
+      console.log(datos);
       var fechas= [];
       var bpm=[];
       datos.forEach(dato => {

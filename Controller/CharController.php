@@ -31,7 +31,8 @@ class Char_Controller
     public function consult()
     {
         $conexion = Conexion::connection();
-        $sql = "SELECT fecha, bpm from monitoreo ORDER BY fecha";
+        $sql = "SELECT bpm, fecha from monitoreo ORDER BY fecha";
         return $conexion->query($sql);
     }
 }
+?>

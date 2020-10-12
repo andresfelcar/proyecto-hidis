@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2020 a las 00:38:19
+-- Tiempo de generación: 13-10-2020 a las 01:36:40
 -- Versión del servidor: 10.4.8-MariaDB
--- Versión de PHP: 7.3.10
+-- Versión de PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -37,6 +37,14 @@ CREATE TABLE `clinica` (
   `NIT` int(15) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `clinica`
+--
+
+INSERT INTO `clinica` (`idclinica`, `nombre`, `telefono`, `direccion`, `cant_insumos`, `NIT`) VALUES
+(1, 'Americas', '5607856', 'Av56B70', NULL, NULL),
+(4, 'SBJ', NULL, 'Av56B80', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -63,16 +71,18 @@ CREATE TABLE `evento` (
   `notificacion` varchar(50) DEFAULT NULL,
   `recomendacion` text DEFAULT NULL,
   `fecha_suceso` datetime DEFAULT NULL,
-  `nombreP` varchar(30) DEFAULT NULL
+  `nombreP` varchar(30) DEFAULT NULL,
+  `idpaciente` int(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `evento`
 --
 
-INSERT INTO `evento` (`idevento`, `gravedad`, `notificacion`, `recomendacion`, `fecha_suceso`, `nombreP`) VALUES
-(10, 'Urgente', 'Cuesito', 'Tome ague loco', '2020-05-31 05:23:49', 'Nairo Quintana'),
-(9, 'Baja', 'Roberto', 'xxxxxxxxxxxxxxx', '2020-05-31 04:44:40', 'Gustavo Adolfo');
+INSERT INTO `evento` (`idevento`, `gravedad`, `notificacion`, `recomendacion`, `fecha_suceso`, `nombreP`, `idpaciente`) VALUES
+(12, 'Alta', 'Gustavo', 'Tomar pastillas cada 8 horas       ', '2020-06-23 12:09:30', 'Andres Caro', 0),
+(17, 'Alta', 'Lee', 'Tomar Pastillas', '2020-10-12 02:29:55', 'Gustavo', 16),
+(18, 'Alta', 'Lee', 'hujakbdjhxm', '2020-10-12 02:30:06', 'Gustavo', 16);
 
 -- --------------------------------------------------------
 
@@ -93,6 +103,13 @@ CREATE TABLE `familiar` (
   `idpaciente` int(9) DEFAULT NULL,
   `contrasena` varchar(250) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `familiar`
+--
+
+INSERT INTO `familiar` (`idfamiliar`, `nombres`, `apellidos`, `documento_id`, `telefono`, `movil`, `correo`, `direccion_residencia`, `direccion_laboral`, `idpaciente`, `contrasena`) VALUES
+(103, 'Pablo', 'Caro', '123', '3196218923', '123', 'andres@gmail.com', '123', '123', 2, '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 
@@ -119,9 +136,18 @@ CREATE TABLE `medico` (
 
 CREATE TABLE `monitoreo` (
   `idmonitoreo` int(9) NOT NULL,
-  `bpm` int(5) DEFAULT NULL,
+  `bpm` int(3) DEFAULT NULL,
+  `fecha` datetime DEFAULT NULL,
   `iddispositivo` int(9) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `monitoreo`
+--
+
+INSERT INTO `monitoreo` (`idmonitoreo`, `bpm`, `fecha`, `iddispositivo`) VALUES
+(129, 86, '2020-10-12 05:49:43', NULL),
+(128, 67, '2020-10-12 05:49:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -135,47 +161,20 @@ CREATE TABLE `paciente` (
   `apellidos` varchar(60) DEFAULT NULL,
   `correo` varchar(60) DEFAULT NULL,
   `contrasena` varchar(250) DEFAULT NULL,
-  `idmedico` int(11) DEFAULT NULL
+  `tokens` varchar(50) NOT NULL,
+  `tipoUsuario` varchar(20) NOT NULL,
+  `req-contrasena` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `paciente`
 --
 
-INSERT INTO `paciente` (`idpaciente`, `nombres`, `apellidos`, `correo`, `contrasena`, `idmedico`) VALUES
-(1, 'andres', 'felipe', 'afca@gmail.com', '333995175660fa13c4ef51172759d180', NULL),
-(2, 'Prueba', 'Prueba', 'prueba@gmail.com', '0391393dc1fffa3708b60efc4b3cea92', NULL);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tipousuario`
---
-
-CREATE TABLE `tipousuario` (
-  `tipoUser` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tipousuarios`
---
-
-CREATE TABLE `tipousuarios` (
-  `CodigoUser` int(11) NOT NULL,
-  `TipoUsuario` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `tipousuarios`
---
-
-INSERT INTO `tipousuarios` (`CodigoUser`, `TipoUsuario`) VALUES
-(3, 'medico'),
-(4, 'familiar'),
-(5, 'paciente'),
-(6, 'administrador');
+INSERT INTO `paciente` (`idpaciente`, `nombres`, `apellidos`, `correo`, `contrasena`, `tokens`, `tipoUsuario`, `req-contrasena`) VALUES
+(13, 'Medico', 'Medico', 'medico@gmail.com', 'dc04583277667809f8cc8858275c5992', '', '3', 0),
+(14, 'Familiar', 'Familiar', 'familiar@gmail.com', '70e0b8023fa9c77bfc688d96b72068c6', '', '2', 0),
+(15, 'Paciente', 'Paciente', 'paciente@gmail.com', '8fd2a23c562064352e82366beea55c23', '', '1', 0),
+(16, 'Prueba', 'Prueba', 'spamyrecuperacion@gmail.com', '0391393dc1fffa3708b60efc4b3cea92', '5f84a884eed55', '1', 0);
 
 --
 -- Índices para tablas volcadas
@@ -225,42 +224,41 @@ ALTER TABLE `monitoreo`
 -- Indices de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  ADD PRIMARY KEY (`idpaciente`),
-  ADD KEY `idmedico` (`idmedico`);
-
---
--- Indices de la tabla `tipousuarios`
---
-ALTER TABLE `tipousuarios`
-  ADD PRIMARY KEY (`CodigoUser`);
+  ADD PRIMARY KEY (`idpaciente`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
+-- AUTO_INCREMENT de la tabla `clinica`
+--
+ALTER TABLE `clinica`
+  MODIFY `idclinica` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de la tabla `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `idevento` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idevento` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `familiar`
 --
 ALTER TABLE `familiar`
-  MODIFY `idfamiliar` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `idfamiliar` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+
+--
+-- AUTO_INCREMENT de la tabla `monitoreo`
+--
+ALTER TABLE `monitoreo`
+  MODIFY `idmonitoreo` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `idpaciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `tipousuarios`
---
-ALTER TABLE `tipousuarios`
-  MODIFY `CodigoUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idpaciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

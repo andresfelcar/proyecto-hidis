@@ -63,12 +63,23 @@ class Login_Controller
         $result = $Conexion->query($sql);
         $filas = $result->num_rows;
 
-        if ($filas > 0) {
+         $Usuario=$array[4];
 
-            echo  "<script> alert('Ya existe una cuenta con ese correo ');
-            Swal.fire('Any fool can use a computer');</script>";
+         if($Usuario=="Paciente"){
+             $Usuario=1;
+         }
+         if($Usuario=="Medico"){
+            $Usuario=3;
+        }
+        if($Usuario=="Familiar"){
+            $Usuario=2;
+        }
+
+
+        if ($filas > 0) {
+            echo  "<script> alert('Ya existe una cuenta con ese correo ');</script>";
         } else {
-            $stmt = $Conexion->prepare("INSERT INTO paciente (nombres,apellidos,correo,contrasena) VALUES (?,?,?,MD5(?))");
+            $stmt = $Conexion->prepare("INSERT INTO paciente (nombres,apellidos,correo,contrasena,tipoUsuario) VALUES (?,?,?,MD5(?),'$Usuario')");
             $stmt->bind_param("ssss", $array[0], $array[1], $array[2], $array[3]);
             $stmt->execute();
             echo "<script>alert('Usuario registrado con exito');</script>";
@@ -124,6 +135,7 @@ class Login_Controller
             $window_restart .= "
             .container-msg{
               width: 100%;
+              background: #ccc;
               text-align: center;
             }
             .boton{
@@ -133,9 +145,8 @@ class Login_Controller
               border-style: none;
               border: 1px solid gray;
               box-shadow: 2px 2px 4px 0 black;
-              background: #2f6081f5;
+              background: orange;
               cursor: pointer;
-              color:white;
             }
             a{
               text-decoration: none;
@@ -143,7 +154,7 @@ class Login_Controller
               color: black;
             }
             a:hover > .boton{
-              background: #ee595f;
+              color: white;
               box-shadow: 1px 1px 2px 0 black;
             }
             ";
@@ -153,7 +164,7 @@ class Login_Controller
                 <h1>Restablecer contraseña</h1>
                 <p>Para restablecer su contraseña haga click en el siguiente boton: </p>
 
-                <a href='http://localhost/proyecto-hidis%20ultima%20fase%20v/index.php?view=recuperacion&tokens=" . $array[0] . "'><button class='boton'>Restablecer Contraseña</button></a>
+                <a href='http://localhost/proyecto-hidis/index.php?view=recuperacion&tokens=" . $array[0] . "'><button class='boton'>Restablecer Contraseña</button></a>
               </div>
             ";
             $window_restart .= "</body></html>";

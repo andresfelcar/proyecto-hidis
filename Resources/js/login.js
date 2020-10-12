@@ -1,10 +1,4 @@
-
- /* Se valida los campos del inicio de sesión, al presionar el botón de enviar
-se condiciona con expresiones regulares, ninguno de los campos puede estar vacio, si todo cumple a cabalidad
-con las caracteristicas se le permite el acceso a la plataforma, de lo contrario se muestra una alerta 
-que le permite saber al usuario lo que está haciendo de manera erronea y se cambia de color rojo el input   
-en el cual comete el error*/
-
+//Al dar al boton se validan los campos
 $("#boton").on("click", function (e) {
   e.preventDefault();
   validarLogin();
@@ -60,8 +54,6 @@ function validarLogin() {
   return true;
 }
 
-
-
 // creamos un funcion de color por defecto a los bordes de los inputs
 function colorDefault(dato) {
   $("#" + dato).css({
@@ -80,53 +72,16 @@ function cambiarColor(dato) {
 function mostraAlerta(texto) {
   $("#boton").after('<div class="alert">' + texto + "</div>");
 }
-function mostraAlerta2(texto) {
-  //swal('Error',texto,'warning');
-  $("#btn_restart").after('<div class="alert">' + texto + "</div>");
-}
-//función para limpiar los campos y dejarlo de su color original
+
 function cleana() {
   $("input").focus(function () {
     $(".alert").remove();
     colorDefault("correo");
     colorDefault("contrasena");
-    colorDefault("email_restart");
   });
   
 }
-
-
-
-
- /*Se valida el correo al cual se envía el cambio de contraseña, el campo no puede estar vacío, debe ingresar
- un correo existente que posteriormente será validado en el archivo de PHP Login_Controller*/
-function Changepass(){
-  $(".alert").remove();
-  var correo = $("#email_restart").val();
-  limpiar= cleana();
-  if (correo == "" || correo == null) {
-    cambiarColor("email_restart");
-    mostraAlerta2("Campo obligatorio");
-    return false;
-  } else {
-    var expresion = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    // /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if (!expresion.test(correo)) {
-      cambiarColor("email_restart");
-      mostraAlerta2("Ingrese un correo válido");
-      return false;
-    }
-    else{
-      limpiar;
-    }
-  }
-  $("#changepass").submit();
-  return true;
-}
 //Animación para el formulario
- /*Al preionar la propiedad <a> que cita "¿Olviaste tu contraseña?" se mostrará el formulario 
- con las caracteristicas establecidas para su recuperación, hasta este momento el formulario se encontraba
- escondido para el usuario*/
 $("#a_restart").on("click", function (e) {
   e.preventDefault();
   let restablecer = document.getElementById("card_restart");
@@ -134,9 +89,3 @@ $("#a_restart").on("click", function (e) {
   restablecer.style.visibility = "visible";
   restablecer.style.opacity = "1";
 });
-
-$("#btn_restart").on("click", function (e) {
-  e.preventDefault();
-  Changepass();
-});
-
